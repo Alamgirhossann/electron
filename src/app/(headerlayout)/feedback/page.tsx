@@ -8,12 +8,14 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import heading_icon from "../../../assets/heading_icon.png";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { feedbackFormSchema } from "@/schemas/formValidationSchema";
 
 const FeedbackPage = () => {
   const onSubmit = async (data: any) => {
-    console.log(data);
     message.success("Thank you for your valuabe feedback");
   };
+
   return (
     <div className="px-5 py-5">
       <h1 className="flex justify-center text-3xl font-bold mb-4 pt-3">
@@ -22,7 +24,10 @@ const FeedbackPage = () => {
       </h1>
 
       <div>
-        <Form submitHandler={onSubmit}>
+        <Form
+          submitHandler={onSubmit}
+          resolver={yupResolver(feedbackFormSchema)}
+        >
           <div
             style={{
               border: "1px solid #d9d9d9",
@@ -74,7 +79,7 @@ const FeedbackPage = () => {
               </Col>
 
               <Col xs={24} style={{ margin: "10px 0" }}>
-                <FormTextArea name="address" label=" Address" rows={4} />
+                <FormTextArea name="message" label=" Message" rows={4} />
               </Col>
             </Row>
           </div>
@@ -85,9 +90,7 @@ const FeedbackPage = () => {
             <Button className="me-3 mb-3" htmlType="submit" type="primary">
               Submit
             </Button>
-            <Button htmlType="submit" type="primary">
-              Clear Form
-            </Button>
+            <Button type="primary">Clear Form</Button>
           </div>
         </Form>
       </div>

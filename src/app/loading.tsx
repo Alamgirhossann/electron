@@ -12,7 +12,8 @@ const Loading = () => {
         }}
       >
         <div>
-          <Spin tip="Loading" size="large"></Spin>
+          {/* <Spin tip="Loading" size="large"></Spin> */}
+          <p>Loading...</p>
         </div>
       </Row>
     </>

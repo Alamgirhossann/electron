@@ -63,6 +63,9 @@ const Header = () => {
             <Menu.Item key="contact">
               <Link href={`/home/#contact`}>Contact Us</Link>
             </Menu.Item>
+            <Menu.Item key="feedback">
+              <Link href={`/feedback`}>Feedback</Link>
+            </Menu.Item>
             {userAdmin && (
               <SubMenu title="User" key="user">
                 <Menu.Item key="name">

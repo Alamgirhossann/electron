@@ -17,3 +17,17 @@ export const signupSchema = yup.object().shape({
     gender: yup.string().required("Gender is required"),
   }),
 });
+
+export const contactFormSchema = yup.object().shape({
+  name: yup.string().required("Name is require"),
+  phoneNumber: yup.string().required("Phone number is required"),
+  email: yup.string().email().required("Email is required"),
+  message: yup.string().required("Message is required"),
+});
+
+export const feedbackFormSchema = yup.object().shape({
+  name: yup.string().required("Name is require"),
+  email: yup.string().email().required("Email is required"),
+  rating: yup.string().required("Rating is required"),
+  message: yup.string().required("Message is required"),
+});
