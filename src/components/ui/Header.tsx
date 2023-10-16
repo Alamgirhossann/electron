@@ -22,18 +22,15 @@ const Header = () => {
   const { SubMenu } = Menu;
   const { userId, role } = getUserInfo() as any;
 
-  try {
-    // Attempt to use localStorage
+  useEffect(() => {
     localStorage.setItem("userId", userId);
     localStorage.setItem("role", role);
-  } catch (error) {
-    console.error("localStorage is not available in this environment.");
-  }
+  }, []);
 
   const { data: adminData } = useAdminsQuery({ limit: 100 });
   const { data: generalUserData } = useGeneralUsersQuery({ limit: 100 });
 
-  console.log("general", generalUserData, "admin", adminData);
+  // console.log("general", generalUserData, "admin", adminData);
 
   const userGeneral = generalUserData?.gereral?.find((id) => id.id === userId);
 
