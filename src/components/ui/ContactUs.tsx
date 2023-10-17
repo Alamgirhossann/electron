@@ -15,8 +15,8 @@ const ContactUs = () => {
   };
   return (
     <div className="flex justify-center mt-5 px-2" id="contact">
-      <div className="w-2/4">
-        <h1 className="flex justify-center text-3xl font-bold mb-4 pt-3">
+      <div className="md:w-2/4 w-full">
+        <h1 className="flex justify-center md:text-3xl text-xl font-bold mb-4 pt-3">
           <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
           <span className="ms-3">Contact Us</span>
         </h1>
@@ -25,7 +25,7 @@ const ContactUs = () => {
           resolver={yupResolver(contactFormSchema)}
         >
           <Row>
-            <Col className="w-2/3" span={24} style={{ margin: "10px 0" }}>
+            <Col span={24} style={{ margin: "10px 0" }}>
               <FormInput name="name" label="Name" />
             </Col>
           </Row>

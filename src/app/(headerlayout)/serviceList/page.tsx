@@ -8,6 +8,7 @@ import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
 import Link from "next/link";
 import Image from "next/image";
 import heading_icon from "../../../assets/heading_icon.png";
+import Loading from "@/app/loading";
 
 const ServiceList = () => {
   const pageSizeOptions = ["5", "10", "20", "30", "40", "50"];
@@ -60,7 +61,7 @@ const ServiceList = () => {
           { label: "serviceList", link: `/serviceList` },
         ]}
       />
-      <h1 className="flex justify-center text-3xl font-bold mb-4 pt-3">
+      <h1 className="flex justify-center md:text-3xl text-xl font-bold mb-4 pt-3">
         <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
         <span className="ms-3">All Services</span>
       </h1>
@@ -88,12 +89,13 @@ const ServiceList = () => {
           </Card>
         </Col>
         <Col xs={24} sm={24} md={16} lg={16} xl={16}>
+          {!data && <Loading />}
           {/* Product Card Column */}
           <Row gutter={[16, 16]}>
             {data?.service?.map((product) => (
               <Col xs={24} sm={12} md={8} lg={8} xl={8} key={product.id}>
                 <Link href={`/detail/${product.id}`}>
-                  <Card className="shadow-xl">
+                  <Card className="shadow-xl h-full">
                     <p>Title: {product.title}</p>
                     <p>Description: {product.description}</p>
                   </Card>

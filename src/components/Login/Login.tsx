@@ -46,17 +46,11 @@ const LoginPage = () => {
           minHeight: "100vh",
         }}
       >
-        <Col sm={12} md={16} lg={10}>
+        <Col sm={12} md={16} lg={10} className="hidden md:block">
           <Image src={loginImage} width={500} alt="login image" />
         </Col>
         <Col sm={12} md={8} lg={8}>
-          <h1
-            style={{
-              margin: "15px 0",
-            }}
-          >
-            First login your account
-          </h1>
+          <h1 className="mt-5 text-lg md:text-2xl">First login your account</h1>
           <div className="border-1 shadow-xl p-5 rounded-md">
             <Form submitHandler={onSubmit} resolver={yupResolver(loginSchema)}>
               <div>

@@ -23,7 +23,6 @@ const Sidebar = () => {
         collapsible
         collapsed={collapsed}
         onCollapse={(value) => setCollapsed(value)}
-        width={280}
         style={{
           overflow: "auto",
           height: "100vh",
@@ -37,14 +36,6 @@ const Sidebar = () => {
           className={`text-white font-bold  text-center  ${
             collapsed ? "text-xl mt-3" : "text-3xl mb-3"
           }`}
-          // style={{
-          //   color: "white",
-          //   fontSize: "1.3rem",
-          //   textAlign: "center",
-          //   fontWeight: "bold",
-          //   marginBottom: "1rem",
-
-          // },collapsed?{fon}}
         >
           Electron
         </div>

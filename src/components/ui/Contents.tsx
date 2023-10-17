@@ -7,8 +7,7 @@ const Contents = ({ children }: { children: React.ReactNode }) => {
   const base = "admin";
   return (
     <>
-      <Content style={{ minHeight: "100vh" }}>
-        {/* <Header /> */}
+      <Content className="h-full w-full">
         <div style={{ padding: "0" }}> {children}</div>
       </Content>
     </>

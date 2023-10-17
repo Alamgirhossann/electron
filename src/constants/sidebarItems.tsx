@@ -47,8 +47,8 @@ export const sidebarItems = (role: string) => {
           key: `/${role}/userProfile`,
         },
         {
-          label: <Link href={`/${role}/academic/department`}>Booking</Link>,
-          key: `/${role}/academic/department`,
+          label: <Link href={`/${role}/booking`}>Booking</Link>,
+          key: `/${role}/booking`,
         },
       ],
     },
@@ -63,9 +63,9 @@ export const sidebarItems = (role: string) => {
     ...defaultSidebarItems,
 
     {
-      label: <Link href={`/${role}/academic/department`}>Booking History</Link>,
+      label: <Link href={`/${role}/booking`}>Booking History</Link>,
       icon: <ProfileOutlined />,
-      key: `/${role}/academic/department`,
+      key: `/${role}/booking`,
     },
   ];
 

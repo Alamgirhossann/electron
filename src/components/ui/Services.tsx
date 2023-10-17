@@ -48,23 +48,23 @@ const cardData = [
 
 const Services = () => {
   return (
-    <div className="bg-gray-200 py-7" id="service">
-      <h1 className="flex justify-center text-3xl font-bold mb-4 pt-3">
+    <div className="bg-gray-200 py-7 px-2" id="service">
+      <h1 className="flex justify-center md:text-3xl text-xl font-bold mb-4 pt-3">
         <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
         <span className="ms-3">Our Services</span>
       </h1>
       <Row gutter={16}>
         {cardData.map((data, index) => (
-          <Col xs={24} sm={12} md={8} key={index}>
+          <Col xs={24} sm={12} md={8} key={index} className="mb-3">
             <Link href="/serviceList">
               <Card
-                className="text-center shadow-2xl"
+                className="text-center shadow-2xl h-full"
                 style={{ marginBottom: "15px" }}
               >
                 <div className="flex justify-center">
                   <Image src={data.image} alt="project_image" width={100} />
                 </div>
-                <p className="text-3xl text-center">{data.title}</p>
+                <p className="md:text-3xl text-xl text-center">{data.title}</p>
                 <p>{data.content}</p>
               </Card>
             </Link>

@@ -21,11 +21,11 @@ import {
   useServicesQuery,
 } from "@/redux/api/serviceApi";
 import {
-  useDeleteGeneralUserMutation,
-  useGeneralUsersQuery,
-} from "@/redux/api/generalUserApi";
+  useAllBookingsQuery,
+  useDeleteBookingMutation,
+} from "@/redux/api/bookingApi";
 
-const UserProfile = () => {
+const AdminBookingPage = () => {
   const query: Record<string, any> = {};
 
   const [page, setPage] = useState<number>(1);
@@ -48,37 +48,45 @@ const UserProfile = () => {
     query["searchTerm"] = debouncedSearchTerm;
   }
 
-  const { data, isLoading } = useGeneralUsersQuery({ ...query });
+  const { data, isLoading } = useAllBookingsQuery({ ...query });
 
-  const generalUser = data?.gereral;
+  const booking = data?.booking;
   const meta = data?.meta;
 
-  const [deleteGeneralUser] = useDeleteGeneralUserMutation();
+  const [deleteBooking] = useDeleteBookingMutation();
 
   const handleDelete = (id: any) => {
-    deleteGeneralUser(id);
+    deleteBooking(id);
   };
 
   const columns = [
     {
-      title: "Login Id",
-      dataIndex: "id",
-    },
-    {
       title: "Name",
       dataIndex: "name",
-      render: function (data: Record<string, string>) {
-        const fullName = `${data?.firstName} ${data?.middleName} ${data?.lastName}`;
-        return <>{fullName}</>;
-      },
-    },
-    {
-      title: "Gender",
-      dataIndex: "gender",
     },
     {
       title: "Email",
       dataIndex: "email",
+    },
+    {
+      title: "Price",
+      dataIndex: "price",
+    },
+    {
+      title: "Contact No",
+      dataIndex: "contactNo",
+    },
+    {
+      title: "Booking Data",
+      dataIndex: "dateOfBooking",
+    },
+    {
+      title: "Address",
+      dataIndex: "address",
+    },
+    {
+      title: "Status",
+      dataIndex: "status",
     },
     {
       title: "Created at",
@@ -91,10 +99,22 @@ const UserProfile = () => {
 
     {
       title: "Action",
-      dataIndex: "id",
+      dataIndex: "_id",
       render: function (data: any) {
         return (
           <>
+            <Link href="">
+              <Button
+                className="bg-blue-500"
+                style={{
+                  margin: "0px 5px",
+                }}
+                onClick={() => console.log(data)}
+                type="primary"
+              >
+                <EditOutlined />
+              </Button>
+            </Link>
             <Button onClick={() => handleDelete(data)} type="primary" danger>
               <DeleteOutlined />
             </Button>
@@ -130,7 +150,7 @@ const UserProfile = () => {
           },
         ]}
       />
-      <ActionBar title="User List">
+      <ActionBar title="Booking List">
         <Input
           size="large"
           placeholder="Search"
@@ -140,11 +160,11 @@ const UserProfile = () => {
           }}
         />
         <div>
-          <Link href="/admin/service/create">
+          {/* <Link href="/admin/service/create">
             <Button className="bg-blue-500" type="primary">
-              Create Service
+              Create Booking
             </Button>
-          </Link>
+          </Link> */}
           {(!!sortBy || !!sortOrder || !!searchTerm) && (
             <Button
               className="bg-blue-500"
@@ -162,7 +182,7 @@ const UserProfile = () => {
         <UMTable
           loading={isLoading}
           columns={columns}
-          dataSource={generalUser}
+          dataSource={booking}
           pageSize={size}
           totalPages={meta?.total}
           showSizeChanger={true}
@@ -175,4 +195,4 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+export default AdminBookingPage;

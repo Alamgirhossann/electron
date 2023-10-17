@@ -7,6 +7,7 @@ import Link from "next/link";
 import heading_icon from "../../../../assets/heading_icon.png";
 import service_img6 from "../../../../assets/service_icon6.png";
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
+import ServiceReview from "@/components/ui/ServiceReview";
 
 const ServiceDetail = ({ params }: any) => {
   const handleShare = () => {
@@ -16,7 +17,7 @@ const ServiceDetail = ({ params }: any) => {
 
   console.log(data?.title);
   return (
-    <div className="bg-gray-300 py-7 h-screen px-3">
+    <div className="bg-gray-300 py-7 px-3">
       <div className="text-white text-xl">
         <UMBreadCrumb
           items={[
@@ -26,8 +27,8 @@ const ServiceDetail = ({ params }: any) => {
         />
       </div>
       <div className=" flex justify-center">
-        <div>
-          <h1 className="flex justify-center text-3xl font-bold mb-4 pt-3">
+        <div className="w-full md:w-2/4">
+          <h1 className="flex justify-center md:text-3xl text-xl font-bold mb-4 pt-3">
             <Image
               src={heading_icon}
               alt="heading_icon"
@@ -50,7 +51,7 @@ const ServiceDetail = ({ params }: any) => {
           </Card>
 
           <div className="flex justify-around">
-            <Link href="/booking">
+            <Link href={`/bookings/${params.id}`}>
               <Button className="bg-blue-500" type="primary">
                 Booking
               </Button>
@@ -65,6 +66,7 @@ const ServiceDetail = ({ params }: any) => {
           </div>
         </div>
       </div>
+      <ServiceReview />
     </div>
   );
 };

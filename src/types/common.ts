@@ -63,6 +63,19 @@ export interface IService {
   __v: number;
 }
 
+export interface IBooking {
+  id: string;
+  name: string;
+  price: string;
+  email: string;
+  rating: string;
+  dateOfBooking: string;
+  address: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
+
 export interface IGeneral {
   name: Name;
   id: string;

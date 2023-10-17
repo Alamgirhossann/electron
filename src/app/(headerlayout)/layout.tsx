@@ -15,7 +15,9 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         <Contents>{children}</Contents>
         <Footer />
         <div className=" font-bold text-lg text-black my-5 text-center">
-          <p>© 2023 All Rights Reserved by Electron</p>
+          <p className="text-sm md:text-2xl">
+            © 2023 All Rights Reserved by Electron
+          </p>
         </div>
         <ScrollToTopButton />
       </Layout>

@@ -31,3 +31,12 @@ export const feedbackFormSchema = yup.object().shape({
   rating: yup.string().required("Rating is required"),
   message: yup.string().required("Message is required"),
 });
+
+export const bookingFormSchema = yup.object().shape({
+  name: yup.string().required("Name is require"),
+  email: yup.string().email().required("Email is required"),
+  price: yup.string().required("Price is required"),
+  address: yup.string().required("Address is required"),
+  contactNo: yup.string().required("Contact number is required"),
+  dateOfBooking: yup.string().required("Data of booking is required"),
+});
