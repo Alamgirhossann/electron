@@ -52,13 +52,13 @@ const Header = () => {
           {/* Menu */}
           <Menu mode="horizontal" theme="dark">
             <Menu.Item key="home">
-              <Link href={`/home`}>Home</Link>
+              <Link href="/">Home</Link>
             </Menu.Item>
             <Menu.Item key="service">
-              <Link href={`/home/#service`}>Service</Link>
+              <Link href="/#service">Service</Link>
             </Menu.Item>
             <Menu.Item key="contact">
-              <Link href={`/home/#contact`}>Contact Us</Link>
+              <Link href="/#contact">Contact Us</Link>
             </Menu.Item>
             <Menu.Item key="feedback">
               <Link href="/feedback">
