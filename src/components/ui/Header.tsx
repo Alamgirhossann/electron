@@ -22,6 +22,10 @@ const Header = () => {
   const { SubMenu } = Menu;
   const { userId, role } = getUserInfo() as any;
 
+  const changeRoute = () => {
+    router.push("/login");
+  };
+
   useEffect(() => {
     localStorage.setItem("userId", userId);
     localStorage.setItem("role", role);
@@ -97,7 +101,7 @@ const Header = () => {
             )}
             {!userAdmin && !userGeneral && (
               <Menu.Item key="login">
-                <Link href="/login">Login</Link>
+                <p onClick={changeRoute}>Login</p>
               </Menu.Item>
             )}
           </Menu>
