@@ -76,7 +76,7 @@ const SignupPage = () => {
           padding: "0 10px",
         }}
       >
-        <Col sm={24} md={10} lg={10}>
+        <Col sm={24} md={10} lg={10} className="hidden md:block">
           <Image src={loginImage} width={500} alt="login image" />
         </Col>
         <Col sm={24} md={14} lg={14}>
@@ -89,7 +89,7 @@ const SignupPage = () => {
                 textAlign: "center",
               }}
             >
-              Faculty information
+              Signup information
             </p>
             <Form submitHandler={onSubmit} resolver={yupResolver(signupSchema)}>
               {/* faculty information */}

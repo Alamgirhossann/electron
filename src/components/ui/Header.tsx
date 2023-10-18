@@ -70,7 +70,7 @@ const Header = () => {
                   {userAdmin?.name?.lastName}
                 </Menu.Item>
                 <Menu.Item key="dashboard">
-                  <Link href="/admin/profile"> Dashboard</Link>
+                  <Link href="/admin"> Dashboard</Link>
                 </Menu.Item>
                 <Menu.Item key="logout">
                   <p className="text-gray-400" onClick={logOut}>
@@ -86,7 +86,7 @@ const Header = () => {
                   {userGeneral?.name?.lastName}
                 </Menu.Item>
                 <Menu.Item key="dashboard">
-                  <Link href="/user/profile"> Dashboard</Link>
+                  <Link href="/user"> Dashboard</Link>
                 </Menu.Item>
                 <Menu.Item key="logout">
                   <p className="text-gray-400" onClick={logOut}>

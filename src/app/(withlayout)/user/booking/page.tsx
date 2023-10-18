@@ -24,8 +24,11 @@ import {
   useAllBookingsQuery,
   useDeleteBookingMutation,
 } from "@/redux/api/bookingApi";
+import { getUserInfo } from "@/services/auth.service";
+import { useRouter } from "next/navigation";
 
 const UserBookingPage = () => {
+  const router = useRouter();
   const query: Record<string, any> = {};
 
   const [page, setPage] = useState<number>(1);
@@ -128,58 +131,71 @@ const UserBookingPage = () => {
     setSortOrder("");
     setSearchTerm("");
   };
+
+  const { role } = getUserInfo() as any;
+
+  if (role !== "user") {
+    router.back();
+  }
   return (
-    <div>
-      <UMBreadCrumb
-        items={[
-          {
-            label: "super_admin",
-            link: "/super_admin",
-          },
-        ]}
-      />
-      <ActionBar title="Booking List">
-        <Input
-          size="large"
-          placeholder="Search"
-          onChange={(e) => setSearchTerm(e.target.value)}
-          style={{
-            width: "30%",
-          }}
+    <>
+      {role !== "user" && (
+        <div className="flex justify-center items-center text-red-600 text-3xl h-screen">
+          <p>Access Denied</p>
+        </div>
+      )}
+      <div className={`${role !== "user" ? "hidden" : "block"}`}>
+        <UMBreadCrumb
+          items={[
+            {
+              label: "user/booking",
+              link: "user/booking",
+            },
+          ]}
         />
-        <div>
-          {/* <Link href="/admin/service/create">
+        <ActionBar title="Booking List">
+          <Input
+            size="large"
+            placeholder="Search"
+            onChange={(e) => setSearchTerm(e.target.value)}
+            style={{
+              width: "30%",
+            }}
+          />
+          <div>
+            {/* <Link href="/admin/service/create">
             <Button className="bg-blue-500" type="primary">
               Create Booking
             </Button>
           </Link> */}
-          {(!!sortBy || !!sortOrder || !!searchTerm) && (
-            <Button
-              className="bg-blue-500"
-              style={{ margin: "0px 5px" }}
-              type="primary"
-              onClick={resetFilters}
-            >
-              <ReloadOutlined />
-            </Button>
-          )}
-        </div>
-      </ActionBar>
+            {(!!sortBy || !!sortOrder || !!searchTerm) && (
+              <Button
+                className="bg-blue-500"
+                style={{ margin: "0px 5px" }}
+                type="primary"
+                onClick={resetFilters}
+              >
+                <ReloadOutlined />
+              </Button>
+            )}
+          </div>
+        </ActionBar>
 
-      <div className=" overflow-x-auto">
-        <UMTable
-          loading={isLoading}
-          columns={columns}
-          dataSource={booking}
-          pageSize={size}
-          totalPages={meta?.total}
-          showSizeChanger={true}
-          onPaginationChange={onPaginationChange}
-          onTableChange={onTableChange}
-          showPagination={true}
-        />
+        <div className=" overflow-x-auto">
+          <UMTable
+            loading={isLoading}
+            columns={columns}
+            dataSource={booking}
+            pageSize={size}
+            totalPages={meta?.total}
+            showSizeChanger={true}
+            onPaginationChange={onPaginationChange}
+            onTableChange={onTableChange}
+            showPagination={true}
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

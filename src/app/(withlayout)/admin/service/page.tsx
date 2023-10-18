@@ -1,7 +1,7 @@
 "use client";
 import ActionBar from "@/components/ui/ActionBar";
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
-import { Button, Input } from "antd";
+import { Button, Input, message } from "antd";
 import Link from "next/link";
 import {
   DeleteOutlined,
@@ -20,8 +20,11 @@ import {
   useDeleteServiceMutation,
   useServicesQuery,
 } from "@/redux/api/serviceApi";
+import { getUserInfo } from "@/services/auth.service";
+import { useRouter } from "next/navigation";
 
 const ServicePage = () => {
+  const router = useRouter();
   const query: Record<string, any> = {};
 
   const [page, setPage] = useState<number>(1);
@@ -124,58 +127,71 @@ const ServicePage = () => {
     setSortOrder("");
     setSearchTerm("");
   };
-  return (
-    <div>
-      <UMBreadCrumb
-        items={[
-          {
-            label: "super_admin",
-            link: "/super_admin",
-          },
-        ]}
-      />
-      <ActionBar title="Servises List">
-        <Input
-          size="large"
-          placeholder="Search"
-          onChange={(e) => setSearchTerm(e.target.value)}
-          style={{
-            width: "20%",
-          }}
-        />
-        <div>
-          <Link href="/admin/service/create">
-            <Button className="bg-blue-500" type="primary">
-              Create Service
-            </Button>
-          </Link>
-          {(!!sortBy || !!sortOrder || !!searchTerm) && (
-            <Button
-              className="bg-blue-500"
-              style={{ margin: "0px 5px" }}
-              type="primary"
-              onClick={resetFilters}
-            >
-              <ReloadOutlined />
-            </Button>
-          )}
-        </div>
-      </ActionBar>
 
-      <div className=" overflow-x-auto">
-        <UMTable
-          loading={isLoading}
-          columns={columns}
-          dataSource={service}
-          pageSize={size}
-          totalPages={meta?.total}
-          showSizeChanger={true}
-          onPaginationChange={onPaginationChange}
-          onTableChange={onTableChange}
-          showPagination={true}
+  const { role } = getUserInfo() as any;
+
+  if (role !== "admin") {
+    router.back();
+  }
+  return (
+    <>
+      {role !== "admin" && (
+        <div className="flex justify-center items-center text-red-600 text-3xl h-screen">
+          <p>Access Denied</p>
+        </div>
+      )}
+      <div className={` ${role !== "admin" ? "hidden" : "block"}`}>
+        <UMBreadCrumb
+          items={[
+            {
+              label: "admin/service",
+              link: "/admin/service",
+            },
+          ]}
         />
+        <ActionBar title="Servises List">
+          <Input
+            size="large"
+            placeholder="Search"
+            onChange={(e) => setSearchTerm(e.target.value)}
+            style={{
+              width: "20%",
+            }}
+          />
+          <div>
+            <Link href="/admin/service/create">
+              <Button className="bg-blue-500" type="primary">
+                Create Service
+              </Button>
+            </Link>
+            {(!!sortBy || !!sortOrder || !!searchTerm) && (
+              <Button
+                className="bg-blue-500"
+                style={{ margin: "0px 5px" }}
+                type="primary"
+                onClick={resetFilters}
+              >
+                <ReloadOutlined />
+              </Button>
+            )}
+          </div>
+        </ActionBar>
+
+        <div className=" overflow-x-auto">
+          <UMTable
+            loading={isLoading}
+            columns={columns}
+            dataSource={service}
+            pageSize={size}
+            totalPages={meta?.total}
+            showSizeChanger={true}
+            onPaginationChange={onPaginationChange}
+            onTableChange={onTableChange}
+            showPagination={true}
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

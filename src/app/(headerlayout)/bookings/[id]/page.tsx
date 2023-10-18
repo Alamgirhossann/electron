@@ -14,23 +14,33 @@ import { useRouter } from "next/navigation";
 import { useAddBookingMutation } from "@/redux/api/bookingApi";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { bookingFormSchema } from "@/schemas/formValidationSchema";
+import { getUserInfo } from "@/services/auth.service";
 
 const Bookings = ({ params }: any) => {
   const router = useRouter();
   const [addBooking] = useAddBookingMutation();
-
+  const { role } = getUserInfo() as any;
+  console.log(role);
+  if (!role) {
+    router.push("/login");
+  }
   const onSubmit = async (values: any) => {
     values["serviceId"] = params.id;
-    console.log(values);
+    // console.log(values);
     try {
       const res = await addBooking({ ...values }).unwrap();
       if (res) {
         message.success("Booking Successfully created!");
-        router.push("/user/profile");
+        router.push("/user");
       }
     } catch (err: any) {
       console.error(err.message);
     }
+  };
+
+  const reservation = () => {
+    message.success("Your booking added to reservation");
+    router.push("/user");
   };
 
   return (
@@ -151,9 +161,7 @@ const Bookings = ({ params }: any) => {
               Confirm Booking
             </Button>
             <Button
-              onClick={() =>
-                message.success("Your booking added to reservation")
-              }
+              onClick={reservation}
               className="bg-blue-500"
               type="primary"
             >
