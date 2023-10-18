@@ -10,7 +10,7 @@ import Services from "@/components/ui/Services";
 import TestimonialCarousel from "@/components/ui/Testimonial";
 import TopBanner from "@/components/ui/TopBanner";
 
-export default function Home() {
+const Home = () => {
   return (
     <div>
       <Header />
@@ -24,4 +24,6 @@ export default function Home() {
       <ScrollToTopButton />
     </div>
   );
-}
+};
+
+export default Home;

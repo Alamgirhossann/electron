@@ -2,24 +2,11 @@
 import ActionBar from "@/components/ui/ActionBar";
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
 import { Button, Input } from "antd";
-import Link from "next/link";
-import {
-  DeleteOutlined,
-  EditOutlined,
-  FilterOutlined,
-  ReloadOutlined,
-  EyeOutlined,
-} from "@ant-design/icons";
+import { DeleteOutlined, ReloadOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { useDebounced } from "@/redux/hooks";
 import UMTable from "@/components/ui/UMTable";
-import { useAdminsQuery } from "@/redux/api/adminApi";
-import { IDepartment } from "@/types";
 import dayjs from "dayjs";
-import {
-  useDeleteServiceMutation,
-  useServicesQuery,
-} from "@/redux/api/serviceApi";
 import {
   useAllBookingsQuery,
   useDeleteBookingMutation,

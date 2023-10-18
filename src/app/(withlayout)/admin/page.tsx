@@ -1,9 +1,7 @@
 "use client";
 
 import { useAdminsQuery } from "@/redux/api/adminApi";
-import { useGeneralUsersQuery } from "@/redux/api/generalUserApi";
 import { getUserInfo } from "@/services/auth.service";
-import React, { useEffect, useState } from "react";
 import heading_icon from "../../../assets/heading_icon.png";
 import Image from "next/image";
 import { Button, Card, message } from "antd";

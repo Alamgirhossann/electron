@@ -25,7 +25,7 @@ const Header = () => {
   useEffect(() => {
     localStorage.setItem("userId", userId);
     localStorage.setItem("role", role);
-  }, []);
+  }, [userId, role]);
 
   const { data: adminData } = useAdminsQuery({ limit: 100 });
   const { data: generalUserData } = useGeneralUsersQuery({ limit: 100 });
@@ -61,9 +61,7 @@ const Header = () => {
               <Link href="/#contact">Contact Us</Link>
             </Menu.Item>
             <Menu.Item key="feedback">
-              <Link href="/feedback">
-                <a>Feedback</a>
-              </Link>
+              <Link href="/feedback">Feedback</Link>
             </Menu.Item>
             {userAdmin && (
               <SubMenu title="User" key="user">
@@ -99,9 +97,7 @@ const Header = () => {
             )}
             {!userAdmin && !userGeneral && (
               <Menu.Item key="login">
-                <Link href="/login">
-                  <a>Login</a>
-                </Link>
+                <Link href="/login">Login</Link>
               </Menu.Item>
             )}
           </Menu>

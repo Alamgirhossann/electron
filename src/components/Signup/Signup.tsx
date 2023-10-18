@@ -3,9 +3,6 @@
 import { Button, Checkbox, Col, Row, message } from "antd";
 import loginImage from "../../assets/Privacy policy-rafiki.png";
 import Image from "next/image";
-import { SubmitHandler } from "react-hook-form";
-// import { useUserLoginMutation } from "@/redux/api/authApi";
-import { getUserInfo, storeUserInfo } from "@/services/auth.service";
 import { useRouter } from "next/navigation";
 import Form from "../forms/Form";
 import FormInput from "../forms/FormInput";
