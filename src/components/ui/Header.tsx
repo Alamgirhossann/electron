@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { Row, Col, Menu, Input, Button, MenuProps } from "antd";
+import React, { useEffect } from "react";
+import { Row, Col, Menu, Input } from "antd";
 import { useRouter } from "next/navigation";
 import { getUserInfo, removeUserInfo } from "@/services/auth.service";
 import { authKey } from "@/constants/storageKey";
 import Link from "next/link";
-import { useAdminsQuery, useUserProfileMutation } from "@/redux/api/adminApi";
+import { useAdminsQuery } from "@/redux/api/adminApi";
 import { useGeneralUsersQuery } from "@/redux/api/generalUserApi";
 
 const { Search } = Input;
@@ -61,7 +61,9 @@ const Header = () => {
               <Link href={`/home/#contact`}>Contact Us</Link>
             </Menu.Item>
             <Menu.Item key="feedback">
-              <Link href={`/feedback`}>Feedback</Link>
+              <Link href="/feedback">
+                <a>Feedback</a>
+              </Link>
             </Menu.Item>
             {userAdmin && (
               <SubMenu title="User" key="user">
@@ -97,7 +99,9 @@ const Header = () => {
             )}
             {!userAdmin && !userGeneral && (
               <Menu.Item key="login">
-                <Link href="/login">Login</Link>
+                <Link href="/login">
+                  <a>Login</a>
+                </Link>
               </Menu.Item>
             )}
           </Menu>
