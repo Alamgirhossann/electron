@@ -12,12 +12,14 @@ import Link from "next/link";
 import { useUserLoginMutation } from "@/redux/api/authApi";
 import { loginSchema } from "@/schemas/formValidationSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useEffect, useState } from "react";
 
 type FormValues = {
   id: string;
   password: string;
 };
 const LoginPage = () => {
+  const [userProfileId, setUserProfileId] = useState<string | null>();
   const router = useRouter();
   const [userLogin] = useUserLoginMutation();
 
@@ -27,15 +29,20 @@ const LoginPage = () => {
       const res = await userLogin({ ...data }).unwrap();
       console.log(res);
       if (res?.accessToken) {
-        router.push("/home");
         message.success("User logged in successfully");
       }
       storeUserInfo({ accessToken: res?.accessToken });
-      localStorage.setItem("userProfileId", res?.userProfileId);
+      setUserProfileId(res?.userProfileId);
+      router.push("/home");
     } catch (error: any) {
       console.error(error.message);
     }
   };
+
+  useEffect(() => {
+    //@ts-ignore
+    localStorage.setItem("userProfileId", userProfileId);
+  }, [userProfileId]);
   return (
     <>
       <Row
