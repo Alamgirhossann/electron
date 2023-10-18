@@ -15,7 +15,7 @@ const AdminProfile = () => {
   const userAdmin = adminData?.admins?.find(
     (id) => id.id === localStorage.getItem("userId")
   );
-  // console.log(userGeneral, userAdmin);
+  console.log(userAdmin);
 
   return (
     <div className="bg-gray-200 ">

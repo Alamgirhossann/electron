@@ -38,7 +38,7 @@ export const serviceApi = baseApi.injectEndpoints({
         return {
           url: `${GENERAL_USER_URL}/${data.id}`,
           method: "PATCH",
-          data,
+          data: data.body,
           // contentType: "multipart/form-data",
         };
       },

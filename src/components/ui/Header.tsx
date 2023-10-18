@@ -73,9 +73,9 @@ const Header = () => {
                   <Link href="/admin/profile"> Dashboard</Link>
                 </Menu.Item>
                 <Menu.Item key="logout">
-                  <Button className="text-gray-400" onClick={logOut}>
+                  <p className="text-gray-400" onClick={logOut}>
                     Logout
-                  </Button>
+                  </p>
                 </Menu.Item>
               </SubMenu>
             )}
@@ -89,9 +89,9 @@ const Header = () => {
                   <Link href="/user/profile"> Dashboard</Link>
                 </Menu.Item>
                 <Menu.Item key="logout">
-                  <Button className="text-gray-400" onClick={logOut}>
+                  <p className="text-gray-400" onClick={logOut}>
                     Logout
-                  </Button>
+                  </p>
                 </Menu.Item>
               </SubMenu>
             )}

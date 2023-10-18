@@ -23,21 +23,20 @@ const UserProfile = () => {
   console.log(userGeneral);
 
   return (
-    <div className="px-5 mx-5">
+    <div className="md:px-5 md:mx-5">
       <h1 className="flex justify-center text-3xl font-bold mb-4 pt-3">
         <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
         <span className="ms-3">User Profile</span>
       </h1>
-      <Card className=" shadow-2xl ">
+      <Card className=" shadow-2xl overflow-x-auto ">
         {!userGeneral && <Loading />}
         {userGeneral && (
           <div className="text-xl">
             <div className="my-2">
               <p className="font-bold">Name</p>
               <p>
-                {userGeneral?.name?.firstName}
-                {""}
-                {userGeneral?.name?.middleName} {userGeneral?.name?.lastName}
+                {userGeneral?.name?.firstName} {userGeneral?.name?.middleName}{" "}
+                {userGeneral?.name?.lastName}
               </p>
             </div>
             <div className="my-2">
@@ -61,12 +60,15 @@ const UserProfile = () => {
         )}
       </Card>
       <div className=" mt-5">
-        <Button type="primary" className="bg-blue-500 me-2 my-2">
-          Edit Profile
-        </Button>
+        <Link href={`/user/userEdit/${userGeneral?._id}`}>
+          {" "}
+          <Button type="primary" className="bg-blue-500 me-2 my-2">
+            Edit Profile
+          </Button>
+        </Link>
         <Link href="/user/payment">
           <Button type="primary" className="bg-blue-500">
-            Payment for booking
+            Payment
           </Button>
         </Link>
       </div>

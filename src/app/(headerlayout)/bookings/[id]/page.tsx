@@ -26,7 +26,7 @@ const Bookings = ({ params }: any) => {
       const res = await addBooking({ ...values }).unwrap();
       if (res) {
         message.success("Booking Successfully created!");
-        // router.push("/admin/service");
+        router.push("/user/profile");
       }
     } catch (err: any) {
       console.error(err.message);
@@ -150,7 +150,13 @@ const Bookings = ({ params }: any) => {
             >
               Confirm Booking
             </Button>
-            <Button className="bg-blue-500" htmlType="submit" type="primary">
+            <Button
+              onClick={() =>
+                message.success("Your booking added to reservation")
+              }
+              className="bg-blue-500"
+              type="primary"
+            >
               Booking Reservation
             </Button>
           </div>

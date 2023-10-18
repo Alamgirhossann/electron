@@ -1,11 +1,15 @@
 "use client";
-import { Form, Input, Button, Card } from "antd";
+import { Form, Input, Button, Card, message } from "antd";
 import Image from "next/image";
 import heading_icon from "../../../../assets/heading_icon.png";
+import { useRouter } from "next/navigation";
 
 function PaymentPage() {
+  const router = useRouter();
   const onFinish = (values: any) => {
     console.log("Payment form values:", values);
+    message.success("Your payment is successfully completed");
+    router.push("/user/booking");
   };
 
   return (

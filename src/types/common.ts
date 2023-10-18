@@ -77,6 +77,7 @@ export interface IBooking {
 }
 
 export interface IGeneral {
+  _id: string;
   name: Name;
   id: string;
   email: string;

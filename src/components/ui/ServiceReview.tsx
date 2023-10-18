@@ -34,7 +34,10 @@ function ServiceReview() {
         </div>
         <div className="mt-4">
           {review?.map((item, i) => (
-            <p key={i}>{item}</p>
+            <div key={i}>
+              <h1 className="text-md md:text-xl mb-3">Comments</h1>
+              <p>{item}</p>
+            </div>
           ))}
         </div>
       </div>

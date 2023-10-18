@@ -144,7 +144,7 @@ const UserBookingPage = () => {
           placeholder="Search"
           onChange={(e) => setSearchTerm(e.target.value)}
           style={{
-            width: "20%",
+            width: "30%",
           }}
         />
         <div>
