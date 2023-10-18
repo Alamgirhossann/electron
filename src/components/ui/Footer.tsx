@@ -22,29 +22,29 @@ const Footer = () => {
           <Col className="py-10 md:px-10 sm:py-0" xs={24} sm={8}>
             <h2 className="md:text-3xl text-xl mb-3 font-bold">Useful Link</h2>
             <div className="md:text-xl text-md">
-              <Link className="text-white" href="/home">
+              <Link className="text-white" href="/">
                 Home
               </Link>
             </div>
             <div className="md:text-xl text-md">
               {" "}
-              <Link className="text-white" href="/home/#about">
+              <Link className="text-white" href="/#about">
                 About
               </Link>
             </div>
             <div className="md:text-xl text-md">
-              <Link className="text-white" href="/home/#project">
+              <Link className="text-white" href="/#project">
                 Our Projects
               </Link>
             </div>
 
             <div className="md:text-xl text-md">
-              <Link className="text-white" href="/home/#testimonial">
+              <Link className="text-white" href="/#testimonial">
                 Testimonial
               </Link>
             </div>
             <div className="md:text-xl text-md">
-              <Link className="text-white" href="/home/#contact">
+              <Link className="text-white" href="/#contact">
                 Contact Us
               </Link>
             </div>

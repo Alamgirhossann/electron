@@ -7,16 +7,20 @@ import Image from "next/image";
 import { Button, Card, message } from "antd";
 import Loading from "@/app/loading";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const AdminProfile = () => {
   const router = useRouter();
+  const [userData, setUserData] = useState<string | null>();
   const { role } = getUserInfo() as any;
   console.log(role);
   const { data: adminData } = useAdminsQuery({ limit: 100 });
 
-  const userAdmin = adminData?.admins?.find(
-    (id) => id.id === localStorage.getItem("userId")
-  );
+  useEffect(() => {
+    setUserData(localStorage.getItem("userId"));
+  }, [userData]);
+
+  const userAdmin = adminData?.admins?.find((id) => id.id === userData);
 
   if (role !== "admin") {
     router.back();

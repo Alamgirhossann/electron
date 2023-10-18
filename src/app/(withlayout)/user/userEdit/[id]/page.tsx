@@ -7,9 +7,7 @@ import {
   useSingleGeneralUserQuery,
   useUpdateGeneralUserMutation,
 } from "@/redux/api/generalUserApi";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Checkbox, Col, Row, message } from "antd";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
 
