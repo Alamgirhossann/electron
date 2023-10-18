@@ -39,7 +39,7 @@ const UserEdit = ({ params }: any) => {
       console.log(res);
       if (res) {
         message.success("Profile Successfully Updated!");
-        router.push("/user/profile");
+        router.push("/user");
       }
     } catch (err: any) {
       console.error(err.message);

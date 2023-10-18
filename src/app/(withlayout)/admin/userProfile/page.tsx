@@ -84,7 +84,7 @@ const UserProfile = () => {
 
     {
       title: "Action",
-      dataIndex: "id",
+      dataIndex: "_id",
       render: function (data: any) {
         return (
           <>
@@ -145,11 +145,6 @@ const UserProfile = () => {
             }}
           />
           <div>
-            <Link href="/admin/service/create">
-              <Button className="bg-blue-500" type="primary">
-                Create Service
-              </Button>
-            </Link>
             {(!!sortBy || !!sortOrder || !!searchTerm) && (
               <Button
                 className="bg-blue-500"

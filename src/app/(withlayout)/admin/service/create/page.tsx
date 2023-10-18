@@ -15,6 +15,7 @@ import { getUserInfo } from "@/services/auth.service";
 const CreateService = () => {
   const router = useRouter();
   const [addService] = useAddServiceMutation();
+
   const onSubmit = async (data: any) => {
     console.log(data);
     try {
