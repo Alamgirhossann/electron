@@ -28,23 +28,23 @@ const Footer = () => {
             </div>
             <div className="md:text-xl text-md">
               {" "}
-              <Link className="text-white" href="/#about">
+              <Link className="text-white" href="#about">
                 About
               </Link>
             </div>
             <div className="md:text-xl text-md">
-              <Link className="text-white" href="/#project">
+              <Link className="text-white" href="#project">
                 Our Projects
               </Link>
             </div>
 
             <div className="md:text-xl text-md">
-              <Link className="text-white" href="/#testimonial">
+              <Link className="text-white" href="#testimonial">
                 Testimonial
               </Link>
             </div>
             <div className="md:text-xl text-md">
-              <Link className="text-white" href="/#contact">
+              <Link className="text-white" href="#contact">
                 Contact Us
               </Link>
             </div>

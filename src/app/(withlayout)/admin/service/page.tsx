@@ -92,7 +92,7 @@ const ServicePage = () => {
               <Button
                 className="bg-blue-500"
                 style={{
-                  margin: "0px 5px",
+                  margin: "5px",
                 }}
                 onClick={() => console.log(data)}
                 type="primary"
@@ -100,7 +100,14 @@ const ServicePage = () => {
                 <EditOutlined />
               </Button>
             </Link>
-            <Button onClick={() => handleDelete(data)} type="primary" danger>
+            <Button
+              style={{
+                margin: "5px",
+              }}
+              onClick={() => handleDelete(data)}
+              type="primary"
+              danger
+            >
               <DeleteOutlined />
             </Button>
           </>
