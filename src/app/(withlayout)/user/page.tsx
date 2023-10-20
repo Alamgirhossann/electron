@@ -63,15 +63,6 @@ const UserProfile = () => {
                 <p className="font-bold">Gender</p>
                 <p>{userGeneral?.gender}</p>
               </div>
-              {/* <div className="my-2">
-              <p className="font-bold">Designation</p>
-              <p>{userAdmin?.designation}</p>
-            </div>
-            
-            <div className="my-2">
-              <p className="font-bold">Date Of Birth</p>
-              <p>{userGeneral?.dateOfBirth}</p>
-            </div> */}
             </div>
           )}
         </Card>

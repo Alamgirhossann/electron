@@ -15,6 +15,9 @@ const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
   const logOut = () => {
     removeUserInfo(authKey);
+    localStorage.removeItem("role");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("userProfileId");
     router.push("/login");
   };
   return (

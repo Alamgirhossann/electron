@@ -38,16 +38,19 @@ const ServiceDetail = ({ params }: any) => {
             <span className="ms-3">Service Detail</span>
           </h1>
           <Card className="" style={{ marginBottom: "15px" }}>
-            <div className="flex justify-center mb-5">
-              <Image src={service_img6} alt="service_image" width={100} />
+            <div className="">
+              <div className="flex justify-center mb-5">
+                <Image src={service_img6} alt="service_image" width={100} />
+              </div>
+              <p>Title: {data?.title}</p>
+              <p>Description: {data?.description}</p>
+              <p>
+                Availability:{" "}
+                {data?.availability ? "Available" : "Not Available"}
+              </p>
+              <p>Price: ${data?.price}</p>
+              <p>Rating: {data?.rating}</p>
             </div>
-            <p className="text-2xl">Title: {data?.title}</p>
-            <p className="text-xl">Description: {data?.description}</p>
-            <p className="text-xl">
-              Availability: {data?.availability ? "Available" : "Not Available"}
-            </p>
-            <p className="text-xl">Price: ${data?.price}</p>
-            <p className="text-xl">Rating: {data?.rating}</p>
           </Card>
 
           <div className="flex justify-around">

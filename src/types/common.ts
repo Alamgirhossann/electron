@@ -86,3 +86,14 @@ export interface IGeneral {
   updatedAt: string;
   __v: number;
 }
+
+export interface ISuperAdmin {
+  _id: string;
+  name: Name;
+  id: string;
+  email: string;
+  gender: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}

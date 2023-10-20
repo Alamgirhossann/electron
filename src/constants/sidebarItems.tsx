@@ -43,19 +43,31 @@ export const sidebarItems = (role: string) => {
       icon: <TableOutlined />,
       children: [
         {
-          label: <Link href={`/${role}/userProfile`}>User Profile</Link>,
-          key: `/${role}/userProfile`,
+          label: <Link href={`/admin/userProfile`}>User Profile</Link>,
+          key: `/admin/userProfile`,
         },
         {
-          label: <Link href={`/${role}/booking`}>Booking</Link>,
-          key: `/${role}/booking`,
+          label: <Link href={`/admin/booking`}>Booking</Link>,
+          key: `/admin/booking`,
         },
       ],
     },
     {
-      label: <Link href={`/${role}/service`}>Service Management</Link>,
-      key: `/${role}/service`,
+      label: <Link href={`/admin/service`}>Service Management</Link>,
+      key: `/admin/service`,
       icon: <AppstoreOutlined />,
+    },
+  ];
+
+  const superAdminSidebarItems: MenuProps["items"] = [
+    // ...defaultSidebarItems,
+    ...adminSidebarItems,
+    {
+      label: (
+        <Link href={`/super_admin/admin-management`}>Admin Management</Link>
+      ),
+      key: "/super_admin/admin-management",
+      icon: <TableOutlined />,
     },
   ];
 
@@ -71,6 +83,7 @@ export const sidebarItems = (role: string) => {
 
   if (role === USER_ROLE.USER) return userSidebarItems;
   else if (role === USER_ROLE.ADMIN) return adminSidebarItems;
+  else if (role === USER_ROLE.SUPER_ADMIN) return superAdminSidebarItems;
   else {
     return defaultSidebarItems;
   }

@@ -1,8 +1,13 @@
 "use client";
 import ActionBar from "@/components/ui/ActionBar";
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
-import { Button, Input } from "antd";
-import { DeleteOutlined, ReloadOutlined } from "@ant-design/icons";
+import { Button, Input, message } from "antd";
+import Link from "next/link";
+import {
+  DeleteOutlined,
+  EditOutlined,
+  ReloadOutlined,
+} from "@ant-design/icons";
 import { useState } from "react";
 import { useDebounced } from "@/redux/hooks";
 import UMTable from "@/components/ui/UMTable";
@@ -13,8 +18,9 @@ import {
 } from "@/redux/api/bookingApi";
 import { getUserInfo } from "@/services/auth.service";
 import { useRouter } from "next/navigation";
+import { useAdminsQuery } from "@/redux/api/adminApi";
 
-const UserBookingPage = () => {
+const AdminManagement = () => {
   const router = useRouter();
   const query: Record<string, any> = {};
 
@@ -38,9 +44,10 @@ const UserBookingPage = () => {
     query["searchTerm"] = debouncedSearchTerm;
   }
 
-  const { data, isLoading } = useAllBookingsQuery({ ...query });
+  const { data, isLoading } = useAdminsQuery({ ...query });
 
-  const booking = data?.booking;
+  const admins = data?.admins;
+  console.log(admins);
   const meta = data?.meta;
 
   const [deleteBooking] = useDeleteBookingMutation();
@@ -51,36 +58,24 @@ const UserBookingPage = () => {
 
   const columns = [
     {
+      title: "Login Id",
+      dataIndex: "id",
+    },
+    {
       title: "Name",
       dataIndex: "name",
+      render: function (data: Record<string, string>) {
+        const fullName = `${data?.firstName} ${data?.middleName} ${data?.lastName}`;
+        return <>{fullName}</>;
+      },
+    },
+    {
+      title: "Gender",
+      dataIndex: "gender",
     },
     {
       title: "Email",
       dataIndex: "email",
-    },
-    {
-      title: "Price",
-      dataIndex: "price",
-    },
-    {
-      title: "Contact No",
-      dataIndex: "contactNo",
-    },
-    {
-      title: "Booking Data",
-      dataIndex: "dateOfBooking",
-    },
-    {
-      title: "Address",
-      dataIndex: "address",
-    },
-    {
-      title: "Status",
-      dataIndex: "status",
-    },
-    {
-      title: "UserId",
-      dataIndex: "userId",
     },
     {
       title: "Created at",
@@ -97,6 +92,19 @@ const UserBookingPage = () => {
       render: function (data: any) {
         return (
           <>
+            {" "}
+            <Link href="">
+              <Button
+                className="bg-blue-500"
+                style={{
+                  margin: "5px",
+                }}
+                onClick={() => console.log(data)}
+                type="primary"
+              >
+                <EditOutlined />
+              </Button>
+            </Link>
             <Button onClick={() => handleDelete(data)} type="primary" danger>
               <DeleteOutlined />
             </Button>
@@ -105,6 +113,7 @@ const UserBookingPage = () => {
       },
     },
   ];
+
   const onPaginationChange = (page: number, pageSize: number) => {
     console.log("Page:", page, "PageSize:", pageSize);
     setPage(page);
@@ -125,22 +134,25 @@ const UserBookingPage = () => {
 
   const { role } = getUserInfo() as any;
 
-  if (role !== "user") {
+  if (role === "user") {
     router.back();
   }
+
   return (
     <>
-      {role !== "user" && (
+      {role === "user" && (
         <div className="flex justify-center items-center text-red-600 text-3xl h-screen">
           <p>Access Denied</p>
         </div>
       )}
-      <div className={`${role !== "user" ? "hidden" : "block"}`}>
+      <div
+        className={`md:px-5 md:py-5 ${role === "user" ? "hidden" : "block"}`}
+      >
         <UMBreadCrumb
           items={[
             {
-              label: "user/booking",
-              link: "user/booking",
+              label: "super_admin",
+              link: "/super_admin",
             },
           ]}
         />
@@ -150,15 +162,15 @@ const UserBookingPage = () => {
             placeholder="Search"
             onChange={(e) => setSearchTerm(e.target.value)}
             style={{
-              width: "30%",
+              width: "20%",
             }}
           />
           <div>
-            {/* <Link href="/admin/service/create">
-            <Button className="bg-blue-500" type="primary">
-              Create Booking
-            </Button>
-          </Link> */}
+            <Link href="/super_admin/admin-management/create">
+              <Button className="bg-blue-500" type="primary">
+                Create Booking
+              </Button>
+            </Link>
             {(!!sortBy || !!sortOrder || !!searchTerm) && (
               <Button
                 className="bg-blue-500"
@@ -176,7 +188,7 @@ const UserBookingPage = () => {
           <UMTable
             loading={isLoading}
             columns={columns}
-            dataSource={booking}
+            dataSource={admins}
             pageSize={size}
             totalPages={meta?.total}
             showSizeChanger={true}
@@ -190,4 +202,4 @@ const UserBookingPage = () => {
   );
 };
 
-export default UserBookingPage;
+export default AdminManagement;

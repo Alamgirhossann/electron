@@ -11,7 +11,7 @@ export const adminApi = baseApi.injectEndpoints({
         url: "/users/create-admin",
         method: "POST",
         data,
-        contentType: "multipart/form-data",
+        // contentType: "multipart/form-data",
       }),
       invalidatesTags: [tagTypes.admin],
     }),
@@ -39,14 +39,6 @@ export const adminApi = baseApi.injectEndpoints({
       }),
       providesTags: [tagTypes.admin],
     }),
-    userProfile: build.mutation({
-      query: (data) => ({
-        url: `${ADMIN_URL}/${data.id}`,
-        method: "POST",
-        // data: data.body,
-      }),
-      invalidatesTags: [tagTypes.admin],
-    }),
   }),
 });
 
@@ -54,5 +46,4 @@ export const {
   useAdminsQuery,
   useAddAdminWithFormDataMutation,
   useSingleAdminQuery,
-  useUserProfileMutation,
 } = adminApi;

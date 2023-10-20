@@ -135,17 +135,17 @@ const ServicePage = () => {
 
   const { role } = getUserInfo() as any;
 
-  if (role !== "admin") {
+  if (role === "user") {
     router.back();
   }
   return (
     <>
-      {role !== "admin" && (
+      {role === "user" && (
         <div className="flex justify-center items-center text-red-600 text-3xl h-screen">
           <p>Access Denied</p>
         </div>
       )}
-      <div className={` ${role !== "admin" ? "hidden" : "block"}`}>
+      <div className={` ${role === "user" ? "hidden" : "block"}`}>
         <UMBreadCrumb
           items={[
             {

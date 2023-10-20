@@ -6,7 +6,7 @@ import FormInput from "@/components/forms/FormInput";
 import FormTextArea from "@/components/forms/FormTextArea";
 import { Button, Col, Row, message } from "antd";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import heading_icon from "../../../../assets/heading_icon.png";
 import Link from "next/link";
 import { useSingleServiceQuery } from "@/redux/api/serviceApi";
@@ -17,18 +17,27 @@ import { bookingFormSchema } from "@/schemas/formValidationSchema";
 import { getUserInfo } from "@/services/auth.service";
 
 const Bookings = ({ params }: any) => {
+  // const [userProfileId, setUserProfileId] = useState<string | null>();
+  // console.log(userProfileId);
   const router = useRouter();
   const [addBooking] = useAddBookingMutation();
-  const { role } = getUserInfo() as any;
-  console.log(role);
+  const { role, userId } = getUserInfo() as any;
+
+  // useEffect(() => {
+  //   //@ts-ignore
+  //   setUserProfileId(localStorage.getItem("userProfileId"));
+  // }, []);
+
   if (!role) {
     router.push("/login");
   }
   const onSubmit = async (values: any) => {
     values["serviceId"] = params.id;
-    // console.log(values);
+    values["userId"] = userId;
+    console.log(values);
     try {
       const res = await addBooking({ ...values }).unwrap();
+
       if (res) {
         message.success("Booking Successfully created!");
         router.push("/user");

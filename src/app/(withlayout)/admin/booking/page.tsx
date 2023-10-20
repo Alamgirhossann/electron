@@ -145,19 +145,19 @@ const AdminBookingPage = () => {
 
   const { role } = getUserInfo() as any;
 
-  if (role !== "admin") {
+  if (role === "user") {
     router.back();
   }
 
   return (
     <>
-      {role !== "admin" && (
+      {role === "user" && (
         <div className="flex justify-center items-center text-red-600 text-3xl h-screen">
           <p>Access Denied</p>
         </div>
       )}
       <div
-        className={`md:px-5 md:py-5 ${role !== "admin" ? "hidden" : "block"}`}
+        className={`md:px-5 md:py-5 ${role === "user" ? "hidden" : "block"}`}
       >
         <UMBreadCrumb
           items={[

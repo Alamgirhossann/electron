@@ -18,6 +18,19 @@ export const signupSchema = yup.object().shape({
   }),
 });
 
+export const adminFormSchema = yup.object().shape({
+  password: yup.string().min(6).required("Password is require"),
+  admin: yup.object().shape({
+    name: yup.object().shape({
+      firstName: yup.string().required("First name is required"),
+      lastName: yup.string().required("Last name is required"),
+      middleName: yup.string().required("Middle name is required"),
+    }),
+    email: yup.string().email().required("Email is required"),
+    gender: yup.string().required("Gender is required"),
+  }),
+});
+
 export const contactFormSchema = yup.object().shape({
   name: yup.string().required("Name is require"),
   phoneNumber: yup.string().required("Phone number is required"),
