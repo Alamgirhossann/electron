@@ -9,7 +9,7 @@ const AboutUs = () => {
         <Image src={heading_icon} alt="" width={20} height={15} />
         <span className="ms-3 md:text-[40px] text-xl font-bold">About Us</span>
       </h1>
-      <p className="lg:text-lg text-[16px]">
+      <p className="lg:text-lg md:text-[16px] text-[12.5px]">
         It is a long established fact that a reader will be distracted by the
         readable content ofa page when looking <br /> at its layout. The point
         of using Lorem Ipsum is that it has a more-or-less normal distribution
