@@ -14,8 +14,8 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         <Header />
         <Contents>{children}</Contents>
         <Footer />
-        <div className=" font-bold text-lg text-black my-5 text-center">
-          <p className="text-sm md:text-2xl">
+        <div className="text-lg text-black my-5 text-center">
+          <p className="text-sm md:text-xl">
             © 2023 All Rights Reserved by Electron
           </p>
         </div>

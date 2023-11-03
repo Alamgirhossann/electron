@@ -48,10 +48,12 @@ const cardData = [
 
 const Services = () => {
   return (
-    <div className="bg-gray-200 py-7 px-2" id="service">
-      <h1 className="flex justify-center md:text-3xl text-xl font-bold mb-4 pt-3">
+    <div className=" md:py-7 py-3 lg:mx-[7rem] md:mx-[3rem] px-2" id="service">
+      <h1 className="flex justify-center  md:my-16 my-8">
         <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
-        <span className="ms-3">Our Services</span>
+        <span className="ms-3 md:text-[40px] text-xl font-bold">
+          Our Services
+        </span>
       </h1>
       <Row gutter={16}>
         {cardData.map((data, index) => (
@@ -61,17 +63,19 @@ const Services = () => {
                 className="text-center shadow-2xl h-full"
                 style={{ marginBottom: "15px" }}
               >
-                <div className="flex justify-center">
-                  <Image src={data.image} alt="project_image" width={100} />
+                <div className="flex justify-center ">
+                  <Image src={data.image} alt="project_image" width={70} />
                 </div>
-                <p className="md:text-3xl text-xl text-center">{data.title}</p>
+                <p className="md:text-2xl text-xl text-center my-3">
+                  {data.title}
+                </p>
                 <p>{data.content}</p>
               </Card>
             </Link>
           </Col>
         ))}
       </Row>
-      <div className="text-center">
+      <div className="text-center mt-10">
         <Link href="/serviceList">
           <Button className="bg-blue-500" type="primary">
             See More

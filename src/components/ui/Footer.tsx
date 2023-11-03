@@ -7,11 +7,14 @@ const { Footer: AndFooter } = Layout;
 const Footer = () => {
   return (
     <>
-      <AndFooter style={{ backgroundColor: "#001529", color: "white" }}>
+      <AndFooter
+        className="mt-16"
+        style={{ backgroundColor: "#001529", color: "white" }}
+      >
         <Row justify="center">
           <Col xs={24} sm={8}>
-            <h2 className="md:text-3xl text-xl mb-3 font-bold">Eectron</h2>
-            <p className="md:text-xl text-md">
+            <h2 className="md:text-[28px] text-xl mb-3 font-bold">Eectron</h2>
+            <p className="md:text-lg text-md">
               It is a long established fact that a reader will be distracted by
               the readable content of a page when looking at its layout. The
               point of using Lorem Ipsum is that it has a more-or-less normal
@@ -20,42 +23,44 @@ const Footer = () => {
             </p>
           </Col>
           <Col className="py-10 md:px-10 sm:py-0" xs={24} sm={8}>
-            <h2 className="md:text-3xl text-xl mb-3 font-bold">Useful Link</h2>
-            <div className="md:text-xl text-md">
+            <h2 className="md:text-[28px] text-xl mb-3 font-bold">
+              Useful Link
+            </h2>
+            <div className="md:text-lg text-md">
               <Link className="text-white" href="/">
                 Home
               </Link>
             </div>
-            <div className="md:text-xl text-md">
+            <div className="md:text-lg text-md">
               {" "}
               <Link className="text-white" href="#about">
                 About
               </Link>
             </div>
-            <div className="md:text-xl text-md">
+            <div className="md:text-lg text-md">
               <Link className="text-white" href="#project">
                 Our Projects
               </Link>
             </div>
 
-            <div className="md:text-xl text-md">
+            <div className="md:text-lg text-md">
               <Link className="text-white" href="#testimonial">
                 Testimonial
               </Link>
             </div>
-            <div className="md:text-xl text-md">
+            <div className="md:text-lg text-md">
               <Link className="text-white" href="#contact">
                 Contact Us
               </Link>
             </div>
-            <div className="md:text-xl text-md">
+            <div className="md:text-lg text-md">
               <Link className="text-white" href="/policy">
                 Our Policy
               </Link>
             </div>
           </Col>
           <Col xs={24} sm={8}>
-            <h2 className="md:text-3xl text-xl mb-3 font-bold">Contact</h2>
+            <h2 className="md:text-[28px] text-xl mb-3 font-bold">Contact</h2>
 
             <div className="flex md:text-xl text-md">
               <p className="me-3">
@@ -65,7 +70,7 @@ const Footer = () => {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="md:w-10 md:h-10 w-5 h-5"
+                  className="md:w-8 md:h-8 w-5 h-5"
                 >
                   <path
                     strokeLinecap="round"
@@ -79,7 +84,7 @@ const Footer = () => {
                   />
                 </svg>
               </p>
-              <p>
+              <p className="md:text-lg text-md">
                 It is a long established fact that a reader will be distracted
               </p>
             </div>
@@ -91,7 +96,7 @@ const Footer = () => {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="md:w-10 md:h-10 w-5 h-5"
+                  className="md:w-8 md:h-8 w-5 h-5"
                 >
                   <path
                     strokeLinecap="round"
@@ -100,7 +105,7 @@ const Footer = () => {
                   />
                 </svg>
               </p>
-              <p>
+              <p className="md:text-lg text-md">
                 (+71) 1234567890
                 <br />
                 (+71) 1234567890
@@ -114,7 +119,7 @@ const Footer = () => {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="md:w-10 md:h-10 w-5 h-5"
+                  className="md:w-8 md:h-8 w-5 h-5"
                 >
                   <path
                     strokeLinecap="round"
@@ -123,7 +128,7 @@ const Footer = () => {
                   />
                 </svg>
               </p>
-              <p>electron@gmail.com</p>
+              <p className="md:text-lg text-md">electron@gmail.com</p>
             </div>
           </Col>
         </Row>

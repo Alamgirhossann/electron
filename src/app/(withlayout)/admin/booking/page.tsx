@@ -156,9 +156,7 @@ const AdminBookingPage = () => {
           <p>Access Denied</p>
         </div>
       )}
-      <div
-        className={`md:px-5 md:py-5 ${role === "user" ? "hidden" : "block"}`}
-      >
+      <div className={`md:p-5 mx-2 ${role === "user" ? "hidden" : "block"}`}>
         <UMBreadCrumb
           items={[
             {
@@ -172,9 +170,7 @@ const AdminBookingPage = () => {
             size="large"
             placeholder="Search"
             onChange={(e) => setSearchTerm(e.target.value)}
-            style={{
-              width: "20%",
-            }}
+            className="md:w-44 w-full"
           />
           <div>
             {/* <Link href="/admin/service/create">
@@ -195,7 +191,7 @@ const AdminBookingPage = () => {
           </div>
         </ActionBar>
 
-        <div className=" overflow-x-auto">
+        <div className=" overflow-x-auto bg-white">
           <UMTable
             loading={isLoading}
             columns={columns}

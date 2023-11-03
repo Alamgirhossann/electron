@@ -135,23 +135,27 @@ const UserBookingPage = () => {
           <p>Access Denied</p>
         </div>
       )}
-      <div className={`${role !== "user" ? "hidden" : "block"}`}>
-        <UMBreadCrumb
-          items={[
-            {
-              label: "user/booking",
-              link: "user/booking",
-            },
-          ]}
-        />
+      <div className={`${role !== "user" ? "hidden" : "block"} mx-2`}>
+        <div className="my-2">
+          {" "}
+          <UMBreadCrumb
+            items={[
+              {
+                label: "user/booking",
+                link: "user/booking",
+              },
+            ]}
+          />
+        </div>
         <ActionBar title="Booking List">
           <Input
             size="large"
             placeholder="Search"
             onChange={(e) => setSearchTerm(e.target.value)}
-            style={{
-              width: "30%",
-            }}
+            // style={{
+            //   width: "30%",
+            // }}
+            className="md:w-44 w-full"
           />
           <div>
             {/* <Link href="/admin/service/create">
@@ -172,7 +176,7 @@ const UserBookingPage = () => {
           </div>
         </ActionBar>
 
-        <div className=" overflow-x-auto">
+        <div className=" overflow-x-auto bg-white">
           <UMTable
             loading={isLoading}
             columns={columns}

@@ -24,56 +24,50 @@ const SuperAdmin = () => {
   }
 
   return (
-    <>
-      {role !== "super_admin" && (
-        <div className="flex justify-center items-center text-red-600 text-3xl h-screen">
-          <p>Access Denied</p>
-        </div>
-      )}
-      <div
-        className={`md:px-5 md:mx-5 ${
-          role !== "super_admin" ? "hidden" : "block"
-        }`}
-      >
-        <h1 className="flex justify-center text-3xl font-bold mb-4 pt-3">
-          <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
-          <span className="ms-3">Super Admin Profile</span>
-        </h1>
-        <Row gutter={24}>
-          {superAdmin?.map((data: any, index: number) => (
-            <Col xs={24} key={index} className="mb-3">
-              <Card className=" shadow-2xl h-full ">
-                <div className="text-xl">
-                  <div className="my-2">
-                    <p className="font-bold">Name</p>
-                    <p>
-                      {data?.name?.firstName} {data?.name?.middleName}{" "}
-                      {data?.name?.lastName}
-                    </p>
-                  </div>
-                  <div className="my-2">
-                    <p className="font-bold">Email</p>
-                    <p>{data?.email}</p>
-                  </div>
-                  <div className="my-2">
-                    <p className="font-bold">Gender</p>
-                    <p>{data?.gender}</p>
-                  </div>
+    <div
+      className={`md:px-5 md:mx-5${
+        role !== "super_admin" ? "hidden" : "block"
+      }`}
+    >
+      <h1 className="flex justify-center md:my-16 my-8 mx-2">
+        <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
+        <span className="ms-3 md:text-[40px] text-xl font-bold ">
+          Super Admin Profile
+        </span>
+      </h1>
+      <div className="flex justify-center">
+        {superAdmin?.map((data: any, index: number) => (
+          <div className=" w-full lg:w-2/4 my-5" key={index}>
+            <div className="shadow-2xl overflow-auto mx-1 bg-white px-1 md:px-5 rounded-md py-4">
+              <div className="md:text-xl text-md text-center">
+                <div className="my-2">
+                  <p className="font-bold">Name</p>
+                  <p>
+                    {data?.name?.firstName} {data?.name?.middleName}{" "}
+                    {data?.name?.lastName}
+                  </p>
                 </div>
-              </Card>
-              <div className=" mt-5">
-                <Link href={`/super_admin/edit/${data?._id}`}>
-                  {" "}
-                  <Button type="primary" className="bg-blue-500 me-2 my-2">
-                    Edit Profile
-                  </Button>
-                </Link>
+                <div className="my-2">
+                  <p className="font-bold">Email</p>
+                  <p>{data?.email}</p>
+                </div>
+                <div className="my-2">
+                  <p className="font-bold">Gender</p>
+                  <p>{data?.gender}</p>
+                </div>
               </div>
-            </Col>
-          ))}
-        </Row>
+            </div>
+            <div className="flex justify-center mt-5">
+              <Link href={`/super_admin/edit/${data?._id}`}>
+                <Button type="primary" className="bg-blue-500 me-2">
+                  Edit Profile
+                </Button>
+              </Link>
+            </div>
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 

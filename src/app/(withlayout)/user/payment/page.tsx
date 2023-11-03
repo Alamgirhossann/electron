@@ -25,21 +25,14 @@ function PaymentPage() {
           <p>Access Denied</p>
         </div>
       )}
-      <div className={` ${role !== "user" ? "hidden" : "block"}`}>
-        <h1 className="flex justify-center text-3xl font-bold mb-4 pt-3">
+      <div className={`p-0 ${role !== "user" ? "hidden" : "block"}`}>
+        <h1 className="flex justify-center my-8 md:my-16">
           <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
-          <span className="ms-3">Payment</span>
+          <span className="ms-3 md:text-[40px] text-xl font-bold">Payment</span>
         </h1>
 
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "5rem",
-          }}
-        >
-          {" "}
-          <Card className=" shadow-xl">
+        <div className="flex justify-center mx-1">
+          <div className="shadow-xl md:w-2/4 w-full px-1 bg-white rounded-md py-3">
             <Form
               name="payment-form"
               labelCol={{ span: 8 }}
@@ -76,9 +69,12 @@ function PaymentPage() {
                 <Input />
               </Form.Item>
 
-              <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+              <Form.Item
+                wrapperCol={{ span: 24 }}
+                className="flex justify-center"
+              >
                 <Button
-                  className="bg-blue-500"
+                  className="bg-blue-500 w-full"
                   type="primary"
                   htmlType="submit"
                 >
@@ -86,7 +82,7 @@ function PaymentPage() {
                 </Button>
               </Form.Item>
             </Form>
-          </Card>
+          </div>
         </div>
       </div>
     </>

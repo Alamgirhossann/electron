@@ -10,6 +10,8 @@ import Form from "@/components/forms/Form";
 import FormInput from "@/components/forms/FormInput";
 import FormSelectField from "@/components/forms/FormSelectField";
 import { adminSchema } from "@/schemas/admin";
+import { getUserInfo } from "@/services/auth.service";
+import heading_icon from "../../../../../assets/heading_icon.png";
 
 type FormValues = {
   generalUser: {
@@ -51,105 +53,126 @@ const CreateAdmin = () => {
       console.error(error.message);
     }
   };
+
+  const { role } = getUserInfo() as any;
+
+  if (role !== "super_admin") {
+    router.back();
+  }
+
   return (
     <>
-      <Row
-        justify="center"
-        align="middle"
-        style={{
-          minHeight: "100vh",
-          padding: "0 10px",
-        }}
+      {role !== "super_admin" && (
+        <div className="flex justify-center items-center text-red-600 text-3xl h-screen">
+          <p>Access Denied</p>
+        </div>
+      )}
+      <div
+        className={`md:px-5 md:mx-5 ${
+          role !== "super_admin" ? "hidden" : "block"
+        }`}
       >
-        <Col sm={24} md={14} lg={14}>
-          <div>
-            <p
-              style={{
-                fontSize: "18px",
-                fontWeight: "500",
-                margin: "5px 0px",
-                textAlign: "center",
-              }}
-            >
-              Admin create information
-            </p>
-            <Form
-              submitHandler={onSubmit}
-              resolver={yupResolver(adminFormSchema)}
-            >
-              {/* faculty information */}
-              <div
-                className=" shadow-xl"
-                style={{
-                  border: "1px solid #d9d9d9",
-                  borderRadius: "5px",
-                  padding: "15px",
-                  marginBottom: "10px",
-                }}
+        <h1 className="flex justify-center md:my-16 my-8">
+          <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
+          <span className="ms-3 md:text-[40px] text-xl font-bold">
+            Create Admin
+          </span>
+        </h1>
+        <Row
+          justify="center"
+          align="middle"
+          // style={{
+          //   minHeight: "100vh",
+          //   padding: "0 10px",
+          // }}
+        >
+          <Col sm={24} md={24} lg={14}>
+            <div className="mx-1">
+              <Form
+                submitHandler={onSubmit}
+                resolver={yupResolver(adminFormSchema)}
               >
-                <Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
-                  <Col xs={24} md={8} style={{ margin: "10px 0" }}>
-                    <FormInput
-                      name="admin.name.firstName"
-                      label="First name"
-                      size="large"
-                    />
-                  </Col>
+                {/* faculty information */}
+                <div
+                  className=" shadow-xl md:p-3 mb-3 p-1"
+                  style={{
+                    border: "1px solid #d9d9d9",
+                    borderRadius: "5px",
+                    // padding: "15px",
+                    // marginBottom: "10px",
+                  }}
+                >
+                  <Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
+                    <Col
+                      xs={24}
+                      md={8}
+                      style={{ margin: "10px 0" }}
+                      className="p-0"
+                    >
+                      <FormInput
+                        name="admin.name.firstName"
+                        label="First name"
+                        size="large"
+                      />
+                    </Col>
 
-                  <Col xs={24} md={8} style={{ margin: "10px 0" }}>
-                    <FormInput
-                      name="admin.name.middleName"
-                      label="Middle name"
-                      size="large"
-                    />
-                  </Col>
+                    <Col xs={24} md={8} style={{ margin: "10px 0" }}>
+                      <FormInput
+                        name="admin.name.middleName"
+                        label="Middle name"
+                        size="large"
+                      />
+                    </Col>
 
-                  <Col xs={24} md={8} style={{ margin: "10px 0" }}>
-                    <FormInput
-                      name="admin.name.lastName"
-                      label="Last name"
-                      size="large"
-                    />
-                  </Col>
-                  <Col xs={24} md={8} style={{ margin: "10px 0" }}>
-                    <FormInput
-                      type="email"
-                      name="admin.email"
-                      label="Email address"
-                      size="large"
-                    />
-                  </Col>
+                    <Col xs={24} md={8} style={{ margin: "10px 0" }}>
+                      <FormInput
+                        name="admin.name.lastName"
+                        label="Last name"
+                        size="large"
+                      />
+                    </Col>
+                    <Col xs={24} md={8} style={{ margin: "10px 0" }}>
+                      <FormInput
+                        type="email"
+                        name="admin.email"
+                        label="Email address"
+                        size="large"
+                      />
+                    </Col>
 
-                  <Col xs={24} md={8} style={{ margin: "10px 0" }}>
-                    <FormInput
-                      type="password"
-                      name="password"
-                      label="Password"
-                      size="large"
-                    />
-                  </Col>
+                    <Col xs={24} md={8} style={{ margin: "10px 0" }}>
+                      <FormInput
+                        type="password"
+                        name="password"
+                        label="Password"
+                        size="large"
+                      />
+                    </Col>
 
-                  <Col xs={24} md={8} style={{ margin: "10px 0" }}>
-                    <FormSelectField
-                      name="admin.gender"
-                      label="Gender"
-                      options={genderOptions}
-                    />
-                  </Col>
+                    <Col xs={24} md={8} style={{ margin: "10px 0" }}>
+                      <FormSelectField
+                        name="admin.gender"
+                        label="Gender"
+                        options={genderOptions}
+                      />
+                    </Col>
 
-                  {/* <Col span={8} style={{ margin: "10px 0" }}>
+                    {/* <Col span={8} style={{ margin: "10px 0" }}>
             <UploadImage name="file" />
           </Col> */}
-                </Row>
-              </div>
+                  </Row>
+                </div>
 
-              <div className="flex justify-between">
-                <Button htmlType="submit">submit</Button>
-              </div>
-            </Form>
-          </div>
-        </Col>
-      </Row>
+                <div className="flex justify-between">
+                  <Button htmlType="submit" className=" bg-blue-500 text-white">
+                    submit
+                  </Button>
+                </div>
+              </Form>
+            </div>
+          </Col>
+        </Row>
+      </div>
     </>
   );
 };

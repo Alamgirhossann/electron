@@ -43,9 +43,11 @@ const CreateService = () => {
         </div>
       )}
       <div
-        className={`md:px-5 md:py-5 ${role === "user" ? "hidden" : "block"}`}
+        className={`md:p- p-1 md:mx-[10rem] ${
+          role === "user" ? "hidden" : "block"
+        }`}
       >
-        <h1 className="flex justify-center text-xl md:text-3xl font-bold mb-4 pt-3">
+        <h1 className="flex justify-center text-xl md:text-3xl font-bold my-16">
           <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
           <span className="ms-3">Add Service</span>
         </h1>
@@ -56,9 +58,8 @@ const CreateService = () => {
               style={{
                 border: "1px solid #d9d9d9",
                 borderRadius: "5px",
-                padding: "15px",
-                marginBottom: "10px",
               }}
+              className=" md:p-4 p-1 mb-3"
             >
               <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                 <Col

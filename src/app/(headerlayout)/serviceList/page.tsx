@@ -43,31 +43,22 @@ const ServiceList = () => {
     setSize(newPageSize);
   };
 
-  //   const startIndex = (page - 1) * size;
-  //   const endIndex = startIndex + size;
-
-  //   const displayedData = data?.service.slice(startIndex, endIndex);
-  //   console.log(displayedData);
-
-  //   console.log(data?.service);
-
-  //   const { role } = getUserInfo();
-
   return (
-    <div className="py-10 bg-gray-300 px-5">
+    <div className="py-10 px-10">
       <UMBreadCrumb
         items={[
           //   { label: `${role}`, link: `/${role}` },
           { label: "serviceList", link: `/serviceList` },
         ]}
       />
-      <h1 className="flex justify-center md:text-3xl text-xl font-bold mb-4 pt-3">
+      <h1 className="flex justify-center  mb-16 pt-3">
         <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
-        <span className="ms-3">All Services</span>
+        <span className="ms-3 md:text-[40px] text-xl font-bold">
+          All Services
+        </span>
       </h1>
       <Row gutter={[16, 16]}>
         <Col xs={24} sm={24} md={8} lg={8} xl={8}>
-          {/* Search and Filter Column */}
           <Card title="Search and Filter" className="shadow-xl">
             <Input
               style={{ marginBottom: "10px" }}
@@ -75,17 +66,6 @@ const ServiceList = () => {
               placeholder="Search"
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            {
-              //  <Select
-              //   style={{ width: "100%" }}
-              //   placeholder="Filter by Category"
-              //   onChange={(value) => console.log(value)} // Replace with your filter logic
-              // >
-              //   <Option value="category1">Category 1</Option>
-              //   <Option value="category2">Category 2</Option>
-              //   {/* Add more filter options as needed */}
-              // </Select>
-            }
           </Card>
         </Col>
         <Col xs={24} sm={24} md={16} lg={16} xl={16}>

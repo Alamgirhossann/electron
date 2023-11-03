@@ -32,7 +32,7 @@ const testimonialData = [
 const Testimonial = () => (
   <div className=" flex justify-center mt-10" id="testimonial">
     <div className=" bg-slate-900 w-full py-10 ">
-      <h1 className="flex justify-center md:text-3xl text-xl font-bold mb-4 pt-3">
+      <h1 className="flex justify-center md:my-16 my-8">
         <Image
           className="rounded-full"
           src={heading_icon}
@@ -40,23 +40,23 @@ const Testimonial = () => (
           width={20}
           height={15}
         />
-        <span className="ms-3 text-white">Testimonial</span>
+        <span className="ms-3 text-white md:text-[40px] text-xl font-bold ">
+          Testimonial
+        </span>
       </h1>
       <Carousel autoplay>
         {testimonialData.map((item, index) => (
           <div key={index} className="text-center mb-10">
-            <p className=" text-white text-2xl">{item.name}</p>
-            <p className=" text-white text-xl">{item.position}</p>
-            <div className="flex justify-center ">
+            <p className=" text-white md:text-2xl text-lg">{item.name}</p>
+            <p className=" text-white md:text-xl text-md">{item.position}</p>
+            <div className="flex justify-center my-5">
               <Image
-                className=" border-4 border-yellow-500 rounded-full"
+                className=" border-4 border-yellow-500 rounded-full md:w-[100px] md:h-[100px] w-[50px] h-[50px]"
                 src={item.image}
                 alt=""
-                width={100}
-                height={100}
               />
             </div>
-            <p className=" text-white text-2xl">{item.content}</p>
+            <p className=" text-white md:text-2xl text-md">{item.content}</p>
           </div>
         ))}
       </Carousel>

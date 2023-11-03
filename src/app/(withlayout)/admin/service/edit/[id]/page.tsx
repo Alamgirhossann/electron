@@ -48,10 +48,12 @@ const EditServicePage = ({ params }: any) => {
   };
 
   return (
-    <div className="px-5 py-5">
-      <h1 className="flex justify-center text-3xl font-bold mb-4 pt-3">
+    <div className="md:p-5 p-1  ">
+      <h1 className="flex justify-center  md:my-16 my-8">
         <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
-        <span className="ms-3">Add Service</span>
+        <span className="ms-3 md:text-[40px] text-xl font-bold">
+          Update Service
+        </span>
       </h1>
 
       <div>
@@ -60,9 +62,8 @@ const EditServicePage = ({ params }: any) => {
             style={{
               border: "1px solid #d9d9d9",
               borderRadius: "5px",
-              padding: "15px",
-              marginBottom: "10px",
             }}
+            className=" md:p-4 p-1 mb-3"
           >
             <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
               <Col

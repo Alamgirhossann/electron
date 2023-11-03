@@ -51,16 +51,16 @@ const Header = () => {
 
   return (
     <>
-      <Row className=" bg-slate-900">
-        <Col xs={6} sm={6} md={4} className="flex items-center h-10">
+      <Row className=" bg-slate-900 px-5">
+        <Col xs={8} sm={8} md={4} className="flex items-center h-10">
           {/* Logo */}
-          <div>
+          <div className="mt-2 md:mt-0">
             <h1 className="text-[1.3rem] md:text-[2rem] text-white">
               Electron
             </h1>
           </div>
         </Col>
-        <Col xs={12} sm={12} md={16}>
+        <Col xs={16} sm={16} md={16}>
           {/* Menu */}
           <Menu mode="horizontal" theme="dark">
             <Menu.Item key="home">
@@ -131,16 +131,14 @@ const Header = () => {
             )}
           </Menu>
         </Col>
-        <Col xs={6} sm={6} md={4} className="flex items-center h-10 mt-2">
+        <Col xs={0} sm={0} md={4} className="flex items-center h-10 mt-2 ">
           {/* Search Field */}
-          <div>
-            <Search
-              className="bg-gray-200"
-              placeholder="Search"
-              onSearch={(value) => console.log(value)}
-              enterButton
-            />
-          </div>
+
+          <Search
+            placeholder="Search"
+            onSearch={(value) => console.log(value)}
+            enterButton
+          />
         </Col>
       </Row>
     </>

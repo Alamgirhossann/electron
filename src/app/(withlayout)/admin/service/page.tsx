@@ -145,7 +145,11 @@ const ServicePage = () => {
           <p>Access Denied</p>
         </div>
       )}
-      <div className={` ${role === "user" ? "hidden" : "block"}`}>
+      <div
+        className={`md:px-5 md:py-5 mx-2 ${
+          role === "user" ? "hidden" : "block"
+        }`}
+      >
         <UMBreadCrumb
           items={[
             {
@@ -159,13 +163,11 @@ const ServicePage = () => {
             size="large"
             placeholder="Search"
             onChange={(e) => setSearchTerm(e.target.value)}
-            style={{
-              width: "20%",
-            }}
+            className="md:w-44 w-full"
           />
-          <div>
+          <div className="mt-3">
             <Link href="/admin/service/create">
-              <Button className="bg-blue-500" type="primary">
+              <Button className="bg-blue-500 md:px-3 px-1" type="primary">
                 Create Service
               </Button>
             </Link>
@@ -182,7 +184,7 @@ const ServicePage = () => {
           </div>
         </ActionBar>
 
-        <div className=" overflow-x-auto">
+        <div className=" overflow-x-auto bg-white">
           <UMTable
             loading={isLoading}
             columns={columns}

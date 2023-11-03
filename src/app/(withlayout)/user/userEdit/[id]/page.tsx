@@ -10,6 +10,8 @@ import {
 import { Button, Checkbox, Col, Row, message } from "antd";
 import { useRouter } from "next/navigation";
 import React from "react";
+import heading_icon from "../../../../../assets/heading_icon.png";
+import Image from "next/image";
 
 const UserEdit = ({ params }: any) => {
   const genderOptions = [
@@ -59,35 +61,32 @@ const UserEdit = ({ params }: any) => {
 
   return (
     <>
+      <h1 className="flex justify-center md:my-16 my-8">
+        <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
+        <span className="ms-3 md:text-[40px] text-xl font-bold">
+          Update User
+        </span>
+      </h1>
       <Row
+        className="px-1"
         justify="center"
         align="middle"
-        style={{
-          minHeight: "100vh",
-          padding: "0 10px",
-        }}
+        // style={{
+        //   minHeight: "100vh",
+        //   padding: "0 10px",
+        // }}
       >
-        <Col sm={24} md={14} lg={14}>
+        <Col sm={24} md={18} lg={14}>
           <div>
-            <p
-              style={{
-                fontSize: "18px",
-                fontWeight: "500",
-                margin: "5px 0px",
-                textAlign: "center",
-              }}
-            >
-              Faculty information
-            </p>
             <Form submitHandler={onSubmit} defaultValues={defaultValues}>
               {/* faculty information */}
               <div
-                className=" shadow-xl"
+                className=" shadow-xl md:p-4 p-1 mb-2"
                 style={{
                   border: "1px solid #d9d9d9",
                   borderRadius: "5px",
-                  padding: "15px",
-                  marginBottom: "10px",
+                  // padding: "15px",
+                  // marginBottom: "10px",
                 }}
               >
                 <Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>

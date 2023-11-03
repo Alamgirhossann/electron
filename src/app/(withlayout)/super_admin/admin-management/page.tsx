@@ -95,17 +95,19 @@ const AdminManagement = () => {
             {" "}
             <Link href="">
               <Button
-                className="bg-blue-500"
-                style={{
-                  margin: "5px",
-                }}
+                className="bg-blue-500 m-1"
                 onClick={() => console.log(data)}
                 type="primary"
               >
                 <EditOutlined />
               </Button>
             </Link>
-            <Button onClick={() => handleDelete(data)} type="primary" danger>
+            <Button
+              className="m-1"
+              onClick={() => handleDelete(data)}
+              type="primary"
+              danger
+            >
               <DeleteOutlined />
             </Button>
           </>
@@ -145,9 +147,7 @@ const AdminManagement = () => {
           <p>Access Denied</p>
         </div>
       )}
-      <div
-        className={`md:px-5 md:py-5 ${role === "user" ? "hidden" : "block"}`}
-      >
+      <div className={`md:p-5 mx-2 ${role === "user" ? "hidden" : "block"}`}>
         <UMBreadCrumb
           items={[
             {
@@ -156,19 +156,17 @@ const AdminManagement = () => {
             },
           ]}
         />
-        <ActionBar title="Booking List">
+        <ActionBar title="Admin List">
           <Input
             size="large"
             placeholder="Search"
             onChange={(e) => setSearchTerm(e.target.value)}
-            style={{
-              width: "20%",
-            }}
+            className="md:w-44 w-full"
           />
-          <div>
+          <div className="mt-3">
             <Link href="/super_admin/admin-management/create">
-              <Button className="bg-blue-500" type="primary">
-                Create Booking
+              <Button className="bg-blue-500 px-1 md:px-4 " type="primary">
+                Create Admin
               </Button>
             </Link>
             {(!!sortBy || !!sortOrder || !!searchTerm) && (
@@ -184,7 +182,7 @@ const AdminManagement = () => {
           </div>
         </ActionBar>
 
-        <div className=" overflow-x-auto">
+        <div className=" overflow-x-auto bg-white">
           <UMTable
             loading={isLoading}
             columns={columns}

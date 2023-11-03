@@ -15,10 +15,12 @@ const cardData = [
 
 const Projects = () => {
   return (
-    <div className="bg-gray-200 py-7 px-2" id="project">
-      <h1 className="flex justify-center md:text-3xl text-xl font-bold mb-4 pt-3">
+    <div className=" py-7 lg:mx-[7rem] md:mx-[3rem] px-2" id="project">
+      <h1 className="flex justify-center md:my-16 my-8">
         <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
-        <span className="ms-3">Our Projects</span>
+        <span className="ms-3 md:text-[40px] text-xl font-bold">
+          Our Projects
+        </span>
       </h1>
       <Row gutter={16}>
         {cardData.map((data, index) => (
@@ -27,10 +29,11 @@ const Projects = () => {
               <Image
                 src={data.image}
                 alt="heading_icon"
-                width={500}
-                className="h-full"
+                className="h-full w-[500px]"
               />
-              <p className="md:text-3xl text-xl text-center">{data.title}</p>
+              <p className="lg:text-2xl text-[15px] text-center mt-4">
+                {data.title}
+              </p>
             </Card>
           </Col>
         ))}

@@ -16,9 +16,11 @@ const ContactUs = () => {
   return (
     <div className="flex justify-center mt-5 px-2" id="contact">
       <div className="md:w-2/4 w-full">
-        <h1 className="flex justify-center md:text-3xl text-xl font-bold mb-4 pt-3">
+        <h1 className="flex justify-center md:my-16 my-8">
           <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
-          <span className="ms-3">Contact Us</span>
+          <span className="ms-3  md:text-[40px] text-xl font-bold">
+            Contact Us
+          </span>
         </h1>
         <Form
           submitHandler={onSubmit}

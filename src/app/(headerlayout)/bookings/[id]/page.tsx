@@ -53,10 +53,12 @@ const Bookings = ({ params }: any) => {
   };
 
   return (
-    <div className="px-5 py-5">
-      <h1 className="flex justify-center text-3xl font-bold mb-4 pt-3">
+    <div className="md:px-[8rem] px-2 py-5">
+      <h1 className="flex justify-center  my-16">
         <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
-        <span className="ms-3">Booking Information</span>
+        <span className="ms-3 md:text-[40px] text-xl font-bold">
+          Booking Information
+        </span>
       </h1>
 
       <div>
@@ -150,7 +152,7 @@ const Bookings = ({ params }: any) => {
                 />
               </Col>
 
-              <Col xs={24} md={8} style={{ margin: "10px 0" }}>
+              <Col xs={24} md={24} style={{ margin: "10px 0" }}>
                 <FormTextArea name="address" label=" Address" rows={4} />
               </Col>
             </Row>
@@ -159,7 +161,7 @@ const Bookings = ({ params }: any) => {
           {/* basic info */}
 
           <div>
-            <p className="block text-xl my-3">
+            <p className="block md:text-xl text-md my-5">
               Read out booking <Link href="/cancelPolicy">cancel</Link> policy
             </p>
             <Button

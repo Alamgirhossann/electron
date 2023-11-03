@@ -1,6 +1,6 @@
 "use client";
 import { Button, Layout, Menu } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { USER_ROLE } from "@/constants/role";
 import { sidebarItems } from "@/constants/sidebarItems";
@@ -12,7 +12,9 @@ const { Sider } = Layout;
 const Sidebar = () => {
   const router = useRouter();
   const { role } = getUserInfo() as any;
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState<any>(
+    window.innerWidth < 768 && false
+  );
   const logOut = () => {
     removeUserInfo(authKey);
     localStorage.removeItem("role");
@@ -20,6 +22,19 @@ const Sidebar = () => {
     localStorage.removeItem("userProfileId");
     router.push("/login");
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setCollapsed(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
       <Sider
@@ -49,7 +64,7 @@ const Sidebar = () => {
           mode="inline"
           items={sidebarItems(role)}
         />
-        <div className={`mt-10 ${collapsed ? " ms-1" : "ms-8"}`}>
+        <div className={`mt-10 overflow-auto ${collapsed ? " ms-1" : "ms-8"}`}>
           <Button className="bg-blue-500" onClick={logOut} type="primary">
             logout
           </Button>

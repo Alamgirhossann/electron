@@ -17,8 +17,8 @@ const ServiceDetail = ({ params }: any) => {
 
   console.log(data?.title);
   return (
-    <div className="bg-gray-300 py-7 px-3">
-      <div className="text-white text-xl">
+    <div className="py-7 px-3">
+      <div className=" text-xl">
         <UMBreadCrumb
           items={[
             { label: "serviceList", link: `/serviceList` },
@@ -28,17 +28,19 @@ const ServiceDetail = ({ params }: any) => {
       </div>
       <div className=" flex justify-center">
         <div className="w-full md:w-2/4">
-          <h1 className="flex justify-center md:text-3xl text-xl font-bold mb-4 pt-3">
+          <h1 className="flex justify-center  my-16">
             <Image
               src={heading_icon}
               alt="heading_icon"
               width={20}
               height={15}
             />
-            <span className="ms-3">Service Detail</span>
+            <span className="ms-3 md:text-[40px] text-xl font-bold">
+              Service Detail
+            </span>
           </h1>
-          <Card className="" style={{ marginBottom: "15px" }}>
-            <div className="">
+          <Card className=" shadow-2xl">
+            <div className="my-5 text-center md:text-xl text-md">
               <div className="flex justify-center mb-5">
                 <Image src={service_img6} alt="service_image" width={100} />
               </div>
@@ -53,15 +55,15 @@ const ServiceDetail = ({ params }: any) => {
             </div>
           </Card>
 
-          <div className="flex justify-around">
+          <div className="flex justify-center my-5">
             <Link href={`/bookings/${params.id}`}>
-              <Button className="bg-blue-500" type="primary">
+              <Button className="bg-blue-500 mx-1" type="primary">
                 Booking
               </Button>
             </Link>
             <Button
               onClick={handleShare}
-              className="bg-blue-500"
+              className="bg-blue-500 mx-1"
               type="primary"
             >
               Share
@@ -69,7 +71,9 @@ const ServiceDetail = ({ params }: any) => {
           </div>
         </div>
       </div>
-      <ServiceReview />
+      <div className="mt-20">
+        <ServiceReview />
+      </div>
     </div>
   );
 };
