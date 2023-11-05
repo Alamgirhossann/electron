@@ -4,12 +4,14 @@ import heading_icon from "../../../assets/heading_icon.png";
 
 const CancelPolicyPage = () => {
   return (
-    <div className="bg-gray-300 h-screen px-5 py-4">
-      <h1 className="flex justify-center text-3xl font-bold mb-4 pt-3">
+    <div className=" h-full px-5 py-4">
+      <h1 className="flex justify-center md:my-16 my-8">
         <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
-        <span className="ms-3">Cancellation Policy</span>
+        <span className="ms-3 md:text-[40px] text-xl font-bold">
+          Cancellation Policy
+        </span>
       </h1>
-      <p className="text-lg">
+      <p className="md:text-lg text-md md:text-left text-center">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem,
         suscipit. Quidem doloremque cum odit earum incidunt repudiandae
         consequuntur provident, voluptates, reiciendis suscipit repellat quam

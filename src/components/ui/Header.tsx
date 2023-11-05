@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Row, Col, Menu, Input } from "antd";
 import { useRouter } from "next/navigation";
 import { getUserInfo, removeUserInfo } from "@/services/auth.service";
@@ -13,6 +13,9 @@ import { useSuperAdminsQuery } from "@/redux/api/superAdmin";
 const { Search } = Input;
 
 const Header = () => {
+  const [superAdminDataFind, setSuperAdminDataFind] = useState<any>();
+
+  console.log(superAdminDataFind);
   const router = useRouter();
   const logOut = () => {
     removeUserInfo(authKey);
@@ -44,14 +47,18 @@ const Header = () => {
   const userGeneral = generalUserData?.gereral?.find((id) => id.id === userId);
 
   const userAdmin = adminData?.admins?.find((id) => id.id === userId);
-  const userSuperAdmin = superAdminData?.superAdmin?.find(
-    (id) => id.id === userId
-  );
+  useEffect(() => {
+    const userSuperAdmin = superAdminData?.superAdmin?.find(
+      (id) => id.id === userId
+    );
+    setSuperAdminDataFind(userSuperAdmin);
+  }, [superAdminData?.superAdmin, userId]);
+
   // console.log(userGeneral, userAdmin);
 
   return (
     <>
-      <Row className=" bg-slate-900 px-5">
+      <Row className=" bg-slate-900 md:px-5 px-2">
         <Col xs={8} sm={8} md={4} className="flex items-center h-10">
           {/* Logo */}
           <div className="mt-2 md:mt-0">
@@ -60,7 +67,7 @@ const Header = () => {
             </h1>
           </div>
         </Col>
-        <Col xs={16} sm={16} md={16}>
+        <Col xs={16} sm={16} md={16} className="flex justify-end">
           {/* Menu */}
           <Menu mode="horizontal" theme="dark">
             <Menu.Item key="home">
@@ -72,11 +79,9 @@ const Header = () => {
             <Menu.Item key="contact">
               <Link href="/#contact">Contact Us</Link>
             </Menu.Item>
-            <Menu.Item key="feedback">
-              <Link href="/feedback">Feedback</Link>
-            </Menu.Item>
+
             {userAdmin && (
-              <SubMenu title="User" key="user">
+              <>
                 <Menu.Item key="name">
                   {userAdmin?.name?.firstName} {userAdmin?.name?.middleName}{" "}
                   {userAdmin?.name?.lastName}
@@ -89,14 +94,14 @@ const Header = () => {
                     Logout
                   </p>
                 </Menu.Item>
-              </SubMenu>
+              </>
             )}
-            {userSuperAdmin && (
-              <SubMenu title="User" key="user">
+            {superAdminDataFind && (
+              <>
                 <Menu.Item key="name">
-                  {userSuperAdmin?.name?.firstName}{" "}
-                  {userSuperAdmin?.name?.middleName}{" "}
-                  {userSuperAdmin?.name?.lastName}
+                  {superAdminDataFind?.name?.firstName}{" "}
+                  {superAdminDataFind?.name?.middleName}{" "}
+                  {superAdminDataFind?.name?.lastName}
                 </Menu.Item>
                 <Menu.Item key="dashboard">
                   <Link href="/super_admin"> Dashboard</Link>
@@ -106,25 +111,29 @@ const Header = () => {
                     Logout
                   </p>
                 </Menu.Item>
-              </SubMenu>
+              </>
             )}
             {userGeneral && (
-              <SubMenu title="User" key="user">
-                <Menu.Item key="name">
-                  {userGeneral?.name?.firstName} {userGeneral?.name?.middleName}{" "}
-                  {userGeneral?.name?.lastName}
+              <>
+                <Menu.Item key="feedback">
+                  <Link href="/feedback">Feedback</Link>
                 </Menu.Item>
                 <Menu.Item key="dashboard">
                   <Link href="/user"> Dashboard</Link>
                 </Menu.Item>
+                <Menu.Item key="name">
+                  {userGeneral?.name?.firstName} {userGeneral?.name?.middleName}{" "}
+                  {userGeneral?.name?.lastName}
+                </Menu.Item>
+
                 <Menu.Item key="logout">
                   <p className="text-gray-400" onClick={logOut}>
                     Logout
                   </p>
                 </Menu.Item>
-              </SubMenu>
+              </>
             )}
-            {!userAdmin && !userGeneral && !userSuperAdmin && (
+            {!userAdmin && !userGeneral && !superAdminDataFind && (
               <Menu.Item key="login">
                 <p onClick={changeRoute}>Login</p>
               </Menu.Item>

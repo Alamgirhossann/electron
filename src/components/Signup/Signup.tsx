@@ -1,7 +1,7 @@
 "use client";
 
 import { Button, Checkbox, Col, Row, message } from "antd";
-import loginImage from "../../assets/Privacy policy-rafiki.png";
+import signupImage from "../../assets/signup.jpg";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Form from "../forms/Form";
@@ -13,6 +13,7 @@ import { signupSchema } from "@/schemas/formValidationSchema";
 import type { CheckboxChangeEvent } from "antd/es/checkbox";
 import { useState } from "react";
 import { useAddGeneralUserMutation } from "@/redux/api/generalUserApi";
+import heading_icon from "../../assets/heading_icon.png";
 
 type FormValues = {
   generalUser: {
@@ -65,42 +66,35 @@ const SignupPage = () => {
   };
   return (
     <>
-      <Row
-        justify="center"
-        align="middle"
-        style={{
-          minHeight: "100vh",
-          padding: "0 10px",
-        }}
-      >
-        <Col sm={24} md={10} lg={10} className="hidden md:block">
-          <Image src={loginImage} width={500} alt="login image" />
+      <h1 className="flex justify-center md:mt-20 mt-10 mb-8">
+        <Image src={heading_icon} alt="" width={20} height={15} />
+        <span className="ms-3 md:text-[40px] text-xl font-bold">Signup</span>
+      </h1>
+      <Row justify="center">
+        <Col sm={0} md={12} lg={12} className="hidden md:block">
+          <div className="flex justify-center">
+            <Image
+              src={signupImage}
+              className="w-[440px] h-[440px]"
+              alt="signup image"
+            />
+          </div>
         </Col>
-        <Col sm={24} md={14} lg={14}>
-          <div>
-            <p
-              style={{
-                fontSize: "18px",
-                fontWeight: "500",
-                margin: "5px 0px",
-                textAlign: "center",
-              }}
-            >
-              Signup information
-            </p>
+        <Col sm={24} md={12} lg={12}>
+          <div className="border-1 shadow-xl p-10 lg:mx-20 md:mx-10 mx-5 rounded-md">
             <Form submitHandler={onSubmit} resolver={yupResolver(signupSchema)}>
               {/* faculty information */}
               <div
-                className=" shadow-xl"
-                style={{
-                  border: "1px solid #d9d9d9",
-                  borderRadius: "5px",
-                  padding: "15px",
-                  marginBottom: "10px",
-                }}
+              // className=" shadow-xl"
+              // style={{
+              //   border: "1px solid #d9d9d9",
+              //   borderRadius: "5px",
+              //   padding: "15px",
+              //   marginBottom: "10px",
+              // }}
               >
                 <Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
-                  <Col xs={24} md={8} style={{ margin: "10px 0" }}>
+                  <Col xs={24} md={12} style={{ margin: "10px 0" }}>
                     <FormInput
                       name="generalUser.name.firstName"
                       label="First name"
@@ -108,7 +102,7 @@ const SignupPage = () => {
                     />
                   </Col>
 
-                  <Col xs={24} md={8} style={{ margin: "10px 0" }}>
+                  <Col xs={24} md={12} style={{ margin: "10px 0" }}>
                     <FormInput
                       name="generalUser.name.middleName"
                       label="Middle name"
@@ -116,14 +110,14 @@ const SignupPage = () => {
                     />
                   </Col>
 
-                  <Col xs={24} md={8} style={{ margin: "10px 0" }}>
+                  <Col xs={24} md={12} style={{ margin: "10px 0" }}>
                     <FormInput
                       name="generalUser.name.lastName"
                       label="Last name"
                       size="large"
                     />
                   </Col>
-                  <Col xs={24} md={8} style={{ margin: "10px 0" }}>
+                  <Col xs={24} md={12} style={{ margin: "10px 0" }}>
                     <FormInput
                       type="email"
                       name="generalUser.email"
@@ -132,7 +126,7 @@ const SignupPage = () => {
                     />
                   </Col>
 
-                  <Col xs={24} md={8} style={{ margin: "10px 0" }}>
+                  <Col xs={24} md={12} style={{ margin: "10px 0" }}>
                     <FormInput
                       type="password"
                       name="password"
@@ -141,7 +135,7 @@ const SignupPage = () => {
                     />
                   </Col>
 
-                  <Col xs={24} md={8} style={{ margin: "10px 0" }}>
+                  <Col xs={24} md={12} style={{ margin: "10px 0" }}>
                     <FormSelectField
                       name="generalUser.gender"
                       label="Gender"
@@ -152,14 +146,21 @@ const SignupPage = () => {
                   {/* <Col span={8} style={{ margin: "10px 0" }}>
             <UploadImage name="file" />
           </Col> */}
-                  <Checkbox name="checkbox" onChange={onChange}>
-                    Accept our <Link href="/policy">Policy</Link>
-                  </Checkbox>
+                  <div className="lg:ms-[5px] md:ms-[10px] ms-3">
+                    <Checkbox name="checkbox" onChange={onChange}>
+                      Accept our <Link href="/policy">Policy</Link>
+                    </Checkbox>
+                  </div>
                 </Row>
               </div>
 
-              <div className="flex justify-between">
-                <Button htmlType="submit">submit</Button>
+              <div className="flex justify-between mt-5">
+                <button
+                  type="submit"
+                  className="bg-blue-500 px-5 py-1 rounded-md text-white"
+                >
+                  submit
+                </button>
                 <Link href="/login">Login</Link>
               </div>
             </Form>

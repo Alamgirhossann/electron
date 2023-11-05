@@ -31,7 +31,7 @@ const TopBanner = () => (
   <div className="flex justify-center md:items-center md:min-h-screen mx-2">
     <Row gutter={16} justify="center">
       <Col xs={24} md={12} className="">
-        <div className="column p-4 md:mt-16 mt-10">
+        <div className="column p-4 md:mt-16 mt-10 text-center md:text-left">
           <div className=" mb-10 ">
             <h1 className="text-[1.8rem] md:text-[2.5rem]">
               ELECTRICAL <br /> CONTRACTOR

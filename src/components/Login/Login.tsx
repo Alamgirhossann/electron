@@ -1,7 +1,7 @@
 "use client";
 
 import { Button, Col, Row, message } from "antd";
-import loginImage from "../../assets/Privacy policy-rafiki.png";
+import loginImage from "../../assets/login (1).jpg";
 import Image from "next/image";
 import { SubmitHandler } from "react-hook-form";
 import { storeUserInfo } from "@/services/auth.service";
@@ -13,6 +13,7 @@ import { useUserLoginMutation } from "@/redux/api/authApi";
 import { loginSchema } from "@/schemas/formValidationSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
+import heading_icon from "../../assets/heading_icon.png";
 
 type FormValues = {
   id: string;
@@ -45,19 +46,29 @@ const LoginPage = () => {
   }, [userProfileId]);
   return (
     <>
+      <h1 className="flex justify-center md:mt-20 mt-10 mb-8">
+        <Image src={heading_icon} alt="" width={20} height={15} />
+        <span className="ms-3 md:text-[40px] text-xl font-bold">Login</span>
+      </h1>
       <Row
         justify="center"
-        align="middle"
-        style={{
-          minHeight: "100vh",
-        }}
+        // align="middle"
+        // style={{
+        //   minHeight: "100vh",
+        // }}
       >
-        <Col sm={12} md={16} lg={10} className="hidden md:block">
-          <Image src={loginImage} width={500} alt="login image" />
+        <Col sm={0} md={12} lg={12} className="hidden md:block ">
+          <div className="flex justify-center">
+            {" "}
+            <Image
+              src={loginImage}
+              alt="login image"
+              className="w-[400px] h-[400px]"
+            />
+          </div>
         </Col>
-        <Col sm={12} md={8} lg={8}>
-          <h1 className="mt-5 text-lg md:text-2xl">First login your account</h1>
-          <div className="border-1 shadow-xl p-5 rounded-md">
+        <Col sm={24} md={12} lg={12}>
+          <div className="border-1 shadow-xl p-10 lg:mx-20 md:mx-10 mx-5 rounded-md md:mt-16 mt-8">
             <Form submitHandler={onSubmit} resolver={yupResolver(loginSchema)}>
               <div>
                 <FormInput name="id" type="text" size="large" label="User ID" />

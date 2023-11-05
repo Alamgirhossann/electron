@@ -12,9 +12,7 @@ const { Sider } = Layout;
 const Sidebar = () => {
   const router = useRouter();
   const { role } = getUserInfo() as any;
-  const [collapsed, setCollapsed] = useState<any>(
-    window.innerWidth < 768 && false
-  );
+
   const logOut = () => {
     removeUserInfo(authKey);
     localStorage.removeItem("role");
@@ -22,7 +20,7 @@ const Sidebar = () => {
     localStorage.removeItem("userProfileId");
     router.push("/login");
   };
-
+  const [collapsed, setCollapsed] = useState<any>(window.innerWidth < 768);
   useEffect(() => {
     const handleResize = () => {
       setCollapsed(window.innerWidth < 768);
