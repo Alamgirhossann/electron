@@ -44,22 +44,22 @@ const ServiceList = () => {
   };
 
   return (
-    <div className="py-10 px-10">
+    <div className="p-8">
       <UMBreadCrumb
         items={[
           //   { label: `${role}`, link: `/${role}` },
           { label: "serviceList", link: `/serviceList` },
         ]}
       />
-      <h1 className="flex justify-center  mb-16 pt-3">
+      <h1 className="flex justify-center  md:my-16 my-8">
         <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
         <span className="ms-3 md:text-[40px] text-xl font-bold">
           All Services
         </span>
       </h1>
       <Row gutter={[16, 16]}>
-        <Col xs={24} sm={24} md={8} lg={8} xl={8}>
-          <Card title="Search and Filter" className="shadow-xl">
+        <Col xs={24} sm={24} md={8} lg={8} xl={8} className="mb-5">
+          <Card title="Search and Filter" className="shadow-xl  ">
             <Input
               style={{ marginBottom: "10px" }}
               size="large"

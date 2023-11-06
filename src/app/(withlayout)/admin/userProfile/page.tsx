@@ -149,7 +149,7 @@ const UserProfile = () => {
           <div>
             {(!!sortBy || !!sortOrder || !!searchTerm) && (
               <Button
-                className="bg-blue-500"
+                className="bg-[#1677ff]"
                 style={{ margin: "0px 5px" }}
                 type="primary"
                 onClick={resetFilters}

@@ -95,7 +95,7 @@ const AdminManagement = () => {
             {" "}
             <Link href="">
               <Button
-                className="bg-blue-500 m-1"
+                className="bg-[#1677ff] m-1"
                 onClick={() => console.log(data)}
                 type="primary"
               >
@@ -165,13 +165,13 @@ const AdminManagement = () => {
           />
           <div className="mt-3">
             <Link href="/super_admin/admin-management/create">
-              <Button className="bg-blue-500 px-1 md:px-4 " type="primary">
+              <Button className="bg-[#1677ff] px-1 md:px-4 " type="primary">
                 Create Admin
               </Button>
             </Link>
             {(!!sortBy || !!sortOrder || !!searchTerm) && (
               <Button
-                className="bg-blue-500"
+                className="bg-[#1677ff]"
                 style={{ margin: "0px 5px" }}
                 type="primary"
                 onClick={resetFilters}

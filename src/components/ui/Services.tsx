@@ -77,7 +77,7 @@ const Services = () => {
       </Row>
       <div className="text-center mt-10">
         <Link href="/serviceList">
-          <Button className="bg-blue-500" type="primary">
+          <Button className="bg-[#1677ff]" type="primary">
             See More
           </Button>
         </Link>

@@ -63,7 +63,7 @@ const EditServicePage = ({ params }: any) => {
               border: "1px solid #d9d9d9",
               borderRadius: "5px",
             }}
-            className=" md:p-4 p-1 mb-3"
+            className=" md:p-4 p-1 mb-3 md:mx-20 shadow-xl"
           >
             <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
               <Col
@@ -133,9 +133,9 @@ const EditServicePage = ({ params }: any) => {
 
           {/* basic info */}
 
-          <div>
+          <div className="md:mx-20">
             <Button
-              className="me-3 mb-3 bg-blue-500"
+              className="me-3 mb-3 bg-[#1677ff]"
               htmlType="submit"
               type="primary"
             >

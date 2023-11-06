@@ -165,7 +165,7 @@ const Bookings = ({ params }: any) => {
               Read out booking <Link href="/cancelPolicy">cancel</Link> policy
             </p>
             <Button
-              className="me-3 mb-3 bg-blue-500"
+              className="me-3 mb-3 bg-[#1677ff]"
               htmlType="submit"
               type="primary"
             >
@@ -173,7 +173,7 @@ const Bookings = ({ params }: any) => {
             </Button>
             <Button
               onClick={reservation}
-              className="bg-blue-500"
+              className="bg-[#1677ff]"
               type="primary"
             >
               Booking Reservation

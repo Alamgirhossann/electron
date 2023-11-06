@@ -164,7 +164,10 @@ const CreateAdmin = () => {
                 </div>
 
                 <div className="flex justify-between">
-                  <Button htmlType="submit" className=" bg-blue-500 text-white">
+                  <Button
+                    htmlType="submit"
+                    className=" bg-[#1677ff] text-white"
+                  >
                     submit
                   </Button>
                 </div>

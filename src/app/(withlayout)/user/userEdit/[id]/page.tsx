@@ -136,7 +136,7 @@ const UserEdit = ({ params }: any) => {
                 <Button
                   htmlType="submit"
                   type="primary"
-                  className="bg-blue-500"
+                  className="bg-[#1677ff]"
                 >
                   submit
                 </Button>

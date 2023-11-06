@@ -90,7 +90,7 @@ const ServicePage = () => {
           <>
             <Link href={`/admin/service/edit/${data}`}>
               <Button
-                className="bg-blue-500"
+                className="bg-[#1677ff]"
                 style={{
                   margin: "5px",
                 }}
@@ -167,13 +167,13 @@ const ServicePage = () => {
           />
           <div className="mt-3">
             <Link href="/admin/service/create">
-              <Button className="bg-blue-500 md:px-3 px-1" type="primary">
+              <Button className="bg-[#1677ff] md:px-3 px-1" type="primary">
                 Create Service
               </Button>
             </Link>
             {(!!sortBy || !!sortOrder || !!searchTerm) && (
               <Button
-                className="bg-blue-500"
+                className="bg-[#1677ff]"
                 style={{ margin: "0px 5px" }}
                 type="primary"
                 onClick={resetFilters}

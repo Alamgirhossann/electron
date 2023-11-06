@@ -74,7 +74,7 @@ function PaymentPage() {
                 className="flex justify-center"
               >
                 <Button
-                  className="bg-blue-500 w-full"
+                  className="bg-[#1677ff] w-full"
                   type="primary"
                   htmlType="submit"
                 >

@@ -28,7 +28,7 @@ const ScrollToTopButton = () => {
     <>
       <FloatButton.BackTop visibilityHeight={100}>
         <Button
-          className="bg-blue-500"
+          className="bg-[#1677ff]"
           type="primary"
           shape="circle"
           icon={<UpOutlined />}

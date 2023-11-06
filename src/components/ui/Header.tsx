@@ -82,13 +82,14 @@ const Header = () => {
 
             {userAdmin && (
               <>
+                <Menu.Item key="dashboard">
+                  <Link href="/admin"> Dashboard</Link>
+                </Menu.Item>
                 <Menu.Item key="name">
                   {userAdmin?.name?.firstName} {userAdmin?.name?.middleName}{" "}
                   {userAdmin?.name?.lastName}
                 </Menu.Item>
-                <Menu.Item key="dashboard">
-                  <Link href="/admin"> Dashboard</Link>
-                </Menu.Item>
+
                 <Menu.Item key="logout">
                   <p className="text-gray-400" onClick={logOut}>
                     Logout
@@ -98,14 +99,15 @@ const Header = () => {
             )}
             {superAdminDataFind && (
               <>
+                <Menu.Item key="dashboard">
+                  <Link href="/super_admin"> Dashboard</Link>
+                </Menu.Item>
                 <Menu.Item key="name">
                   {superAdminDataFind?.name?.firstName}{" "}
                   {superAdminDataFind?.name?.middleName}{" "}
                   {superAdminDataFind?.name?.lastName}
                 </Menu.Item>
-                <Menu.Item key="dashboard">
-                  <Link href="/super_admin"> Dashboard</Link>
-                </Menu.Item>
+
                 <Menu.Item key="logout">
                   <p className="text-gray-400" onClick={logOut}>
                     Logout
@@ -140,10 +142,11 @@ const Header = () => {
             )}
           </Menu>
         </Col>
-        <Col xs={0} sm={0} md={4} className="flex items-center h-10 mt-2 ">
+        <Col xs={0} sm={0} md={4} className="hidden md:block h-10 mt-2 ">
           {/* Search Field */}
 
           <Search
+            className="hidden md:block"
             placeholder="Search"
             onSearch={(value) => console.log(value)}
             enterButton

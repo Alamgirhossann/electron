@@ -100,7 +100,7 @@ const AdminBookingPage = () => {
           <>
             <Link href="">
               <Button
-                className="bg-blue-500"
+                className="bg-[#1677ff]"
                 style={{
                   margin: "5px",
                 }}
@@ -174,13 +174,13 @@ const AdminBookingPage = () => {
           />
           <div>
             {/* <Link href="/admin/service/create">
-            <Button className="bg-blue-500" type="primary">
+            <Button className="bg-[#1677ff]" type="primary">
               Create Booking
             </Button>
           </Link> */}
             {(!!sortBy || !!sortOrder || !!searchTerm) && (
               <Button
-                className="bg-blue-500"
+                className="bg-[#1677ff]"
                 style={{ margin: "0px 5px" }}
                 type="primary"
                 onClick={resetFilters}

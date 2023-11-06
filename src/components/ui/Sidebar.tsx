@@ -63,7 +63,7 @@ const Sidebar = () => {
           items={sidebarItems(role)}
         />
         <div className={`mt-10 overflow-auto ${collapsed ? " ms-1" : "ms-8"}`}>
-          <Button className="bg-blue-500" onClick={logOut} type="primary">
+          <Button className="bg-[#1677ff]" onClick={logOut} type="primary">
             logout
           </Button>
         </div>

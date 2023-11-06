@@ -71,7 +71,7 @@ const AdminProfile = () => {
           <div className=" mt-5">
             <Link href="">
               {" "}
-              <Button type="primary" className="bg-blue-500 my-2 ">
+              <Button type="primary" className="bg-[#1677ff] my-2 ">
                 Edit Profile
               </Button>
             </Link>

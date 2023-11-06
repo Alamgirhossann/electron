@@ -75,12 +75,12 @@ const UserProfile = () => {
           <div className=" mt-5">
             <Link href={`/user/userEdit/${userGeneral?._id}`}>
               {" "}
-              <Button type="primary" className="bg-blue-500 me-2 my-2">
+              <Button type="primary" className="bg-[#1677ff] me-2 my-2">
                 Edit Profile
               </Button>
             </Link>
             <Link href="/user/payment">
-              <Button type="primary" className="bg-blue-500">
+              <Button type="primary" className="bg-[#1677ff]">
                 Payment
               </Button>
             </Link>

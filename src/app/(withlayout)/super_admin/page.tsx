@@ -59,7 +59,7 @@ const SuperAdmin = () => {
             </div>
             <div className="flex justify-center mt-5">
               <Link href={`/super_admin/edit/${data?._id}`}>
-                <Button type="primary" className="bg-blue-500 me-2">
+                <Button type="primary" className="bg-[#1677ff] me-2">
                   Edit Profile
                 </Button>
               </Link>

@@ -26,7 +26,7 @@ const NotFoundPage = () => {
         </Row>
         <div className="mt-5 flex justify-center">
           <Link href="/home">
-            <Button className="bg-blue-500" type="primary">
+            <Button className="bg-[#1677ff]" type="primary">
               Back Home
             </Button>
           </Link>

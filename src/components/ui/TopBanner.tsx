@@ -42,7 +42,7 @@ const TopBanner = () => (
               point of using Lorem
             </p>
             <Link href="#contact">
-              <Button className="bg-blue-500 mt-5" type="primary">
+              <Button className="bg-[#1677ff] mt-5" type="primary">
                 CONTRACT
               </Button>
             </Link>
@@ -54,7 +54,7 @@ const TopBanner = () => (
           <Image
             src={header_img}
             alt="header_image"
-            className="w-[550px] h-[450px]"
+            className="w-[550px] h-[450px] colored-image"
           />
         </div>
       </Col>

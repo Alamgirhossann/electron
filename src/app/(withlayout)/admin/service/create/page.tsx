@@ -131,7 +131,7 @@ const CreateService = () => {
 
             <div>
               <Button
-                className="me-3 mb-3 bg-blue-500"
+                className="me-3 mb-3 bg-[#1677ff]"
                 htmlType="submit"
                 type="primary"
               >

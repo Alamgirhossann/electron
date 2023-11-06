@@ -57,13 +57,13 @@ const ServiceDetail = ({ params }: any) => {
 
           <div className="flex justify-center my-5">
             <Link href={`/bookings/${params.id}`}>
-              <Button className="bg-blue-500 mx-1" type="primary">
+              <Button className="bg-[#1677ff] mx-1" type="primary">
                 Booking
               </Button>
             </Link>
             <Button
               onClick={handleShare}
-              className="bg-blue-500 mx-1"
+              className="bg-[#1677ff] mx-1"
               type="primary"
             >
               Share

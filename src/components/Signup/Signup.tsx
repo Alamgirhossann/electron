@@ -157,7 +157,7 @@ const SignupPage = () => {
               <div className="flex justify-between mt-5">
                 <button
                   type="submit"
-                  className="bg-blue-500 px-5 py-1 rounded-md text-white"
+                  className="bg-[#1677ff] px-5 py-1 rounded-md text-white"
                 >
                   submit
                 </button>

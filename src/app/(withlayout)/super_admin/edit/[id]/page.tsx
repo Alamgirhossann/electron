@@ -10,8 +10,10 @@ import {
   useUpdateSuperAdminsMutation,
 } from "@/redux/api/superAdmin";
 import { Button, Checkbox, Col, Row, message } from "antd";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
+import heading_icon from "../../../../../assets/heading_icon.png";
 
 const EditProfile = ({ params }: any) => {
   console.log(params.id);
@@ -61,26 +63,21 @@ const EditProfile = ({ params }: any) => {
 
   return (
     <>
+      <h1 className="flex justify-center  md:my-16 my-8">
+        <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
+        <span className="ms-3 md:text-[40px] text-xl font-bold">
+          Update Information
+        </span>
+      </h1>
       <Row
         justify="center"
         align="middle"
         style={{
-          minHeight: "100vh",
           padding: "0 10px",
         }}
       >
         <Col sm={24} md={14} lg={14}>
           <div>
-            <p
-              style={{
-                fontSize: "18px",
-                fontWeight: "500",
-                margin: "5px 0px",
-                textAlign: "center",
-              }}
-            >
-              User information
-            </p>
             <Form submitHandler={onSubmit} defaultValues={defaultValues}>
               {/* faculty information */}
               <div
@@ -135,11 +132,11 @@ const EditProfile = ({ params }: any) => {
                 </Row>
               </div>
 
-              <div className="flex justify-between">
+              <div className="my-5">
                 <Button
                   htmlType="submit"
                   type="primary"
-                  className="bg-blue-500"
+                  className="bg-[#1677ff]"
                 >
                   submit
                 </Button>

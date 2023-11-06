@@ -48,7 +48,7 @@ const ContactUs = () => {
           </Row>
 
           <div className="flex justify-center my-5">
-            <Button className="bg-blue-500" type="primary" htmlType="submit">
+            <Button className="bg-[#1677ff]" type="primary" htmlType="submit">
               Submit
             </Button>
           </div>

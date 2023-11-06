@@ -25,7 +25,7 @@ function ServiceReview() {
         />
         <div className="flex justify-center">
           <Button
-            className="bg-blue-500 mt-3"
+            className="bg-[#1677ff] mt-3"
             type="primary"
             onClick={handleChange}
           >

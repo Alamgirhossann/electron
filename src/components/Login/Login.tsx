@@ -87,7 +87,7 @@ const LoginPage = () => {
               </div>
               <div className="flex justify-between">
                 <Button
-                  className="bg-blue-500"
+                  className="bg-[#1677ff]"
                   type="primary"
                   htmlType="submit"
                 >
