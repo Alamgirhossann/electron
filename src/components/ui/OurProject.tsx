@@ -24,17 +24,22 @@ const Projects = () => {
       </h1>
       <Row gutter={16}>
         {cardData.map((data, index) => (
-          <Col xs={24} sm={12} md={8} key={index} className="mb-3">
-            <Card className=" shadow-2xl h-full ">
-              <Image
-                src={data.image}
-                alt="heading_icon"
-                className="h-full w-[500px]"
-              />
-              <p className="lg:text-2xl text-[15px] text-center mt-4">
-                {data.title}
-              </p>
-            </Card>
+          <Col xs={24} sm={8} md={8} key={index} className="mb-3">
+            <div className="h-full mx-10 sm:mx-0">
+              <Card className=" shadow-2xl h-full ">
+                <div className="flex justify-center">
+                  {" "}
+                  <Image
+                    src={data.image}
+                    alt="heading_icon"
+                    className="h-[150px] w-[300px] md:h-full md:w-[500px]"
+                  />
+                </div>
+                <p className="lg:text-2xl text-[15px] text-center mt-4">
+                  {data.title}
+                </p>
+              </Card>
+            </div>
           </Col>
         ))}
       </Row>

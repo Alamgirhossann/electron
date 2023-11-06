@@ -59,18 +59,21 @@ const Services = () => {
         {cardData.map((data, index) => (
           <Col xs={24} sm={12} md={8} key={index} className="mb-3">
             <Link href="/serviceList">
-              <Card
-                className="text-center shadow-2xl h-full"
-                style={{ marginBottom: "15px" }}
-              >
-                <div className="flex justify-center ">
-                  <Image src={data.image} alt="project_image" width={70} />
-                </div>
-                <p className="md:text-2xl text-xl text-center my-3">
-                  {data.title}
-                </p>
-                <p>{data.content}</p>
-              </Card>
+              <div className="h-full mx-10 sm:mx-0">
+                {" "}
+                <Card
+                  className="text-center shadow-2xl h-full"
+                  style={{ marginBottom: "15px" }}
+                >
+                  <div className="flex justify-center ">
+                    <Image src={data.image} alt="project_image" width={70} />
+                  </div>
+                  <p className="md:text-2xl text-xl text-center my-3">
+                    {data.title}
+                  </p>
+                  <p>{data.content}</p>
+                </Card>
+              </div>
             </Link>
           </Col>
         ))}

@@ -56,7 +56,9 @@ const Testimonial = () => (
                 alt=""
               />
             </div>
-            <p className=" text-white md:text-2xl text-md">{item.content}</p>
+            <p className=" text-white md:text-2xl text-md mx-2">
+              {item.content}
+            </p>
           </div>
         ))}
       </Carousel>
