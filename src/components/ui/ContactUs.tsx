@@ -9,39 +9,61 @@ import FormTextArea from "../forms/FormTextArea";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { contactFormSchema } from "@/schemas/formValidationSchema";
 import emailjs from "emailjs-com";
-emailjs.init("YOUR_USER_ID");
 import { useState } from "react";
 const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: "",
     phoneNumber: "",
     email: "",
-    message: "",
+    message: "hello",
   });
-  const onSubmit = () => {
-    emailjs
-      .sendForm(
-        "service_lr1ih5h",
-        "template_mxr2j6r",
 
+  // console.log(formData);
+
+  const onSubmit = async (data: any) => {
+    try {
+      const response = await emailjs.send(
+        "service_dm9ueje",
+        "template_tnhnvfa",
+        data,
         "7GU6olgrht7sINqSx"
-      )
-      .then(
-        (result) => {
-          console.log("Email sent successfully:", result.text);
-          setFormData({
-            name: "",
-            phoneNumber: "",
-            email: "",
-            message: "",
-          });
-          message.success("your data submitted successfully");
-        },
-        (error) => {
-          console.error("Email send failed:", error);
-        }
       );
+
+      console.log("Email sent successfully:", response);
+      message.success("Email sent successfully");
+      return response;
+    } catch (error) {
+      console.error("Error sending email:", error);
+      throw error;
+    }
+    // emailjs
+    //   .sendForm(
+    //     "service_lr1ih5h",
+    //     "template_mxr2j6r",
+    //     formData.name,
+    //     "7GU6olgrht7sINqSx"
+    //   )
+    //   .then(
+    //     (result) => {
+    //       console.log("Email sent successfully:", result.text);
+    //       setFormData({
+    //         name: "",
+    //         phoneNumber: "",
+    //         email: "",
+    //         message: "",
+    //       });
+    //       message.success("your data submitted successfully");
+    //     },
+    //     (error) => {
+    //       console.error("Email send failed:", error);
+    //     }
+    //   );
   };
+
+  // const handleChangeInput = (e: any) => {
+  //   const { name, value } = e.target;
+  //   setFormData({ ...formData, [name]: value });
+  // };
 
   return (
     <div className="flex justify-center mt-5 px-2" id="contact">
@@ -58,7 +80,12 @@ const ContactUs = () => {
         >
           <Row>
             <Col span={24} style={{ margin: "10px 0" }}>
-              <FormInput name="name" label="Name" value={formData.name} />
+              <FormInput
+                name="name"
+                type="text"
+                label="Name"
+                // value={formData.name}
+              />
             </Col>
           </Row>
           <Row>
@@ -66,13 +93,19 @@ const ContactUs = () => {
               <FormInput
                 name="phoneNumber"
                 label="Phone Number"
-                value={formData.phoneNumber}
+                type="text"
+                // value={formData.phoneNumber}
               />
             </Col>
           </Row>
           <Row>
             <Col span={24} style={{ margin: "10px 0" }}>
-              <FormInput name="email" label="Email" value={formData.email} />
+              <FormInput
+                name="email"
+                label="Email"
+                type="email"
+                // value={formData.email}
+              />
             </Col>
           </Row>
           <Row>
@@ -81,7 +114,7 @@ const ContactUs = () => {
                 name="message"
                 label="Message"
                 rows={4}
-                value={formData.message}
+                // value={formData.message}
               />
             </Col>
           </Row>
