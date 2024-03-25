@@ -1,9 +1,9 @@
 "use client";
 
 import AboutUs from "@/components/ui/AboutUs";
-import AutoCounting from "@/components/ui/AutoCounting";
 import Blog from "@/components/ui/Blog";
 import ContactUs from "@/components/ui/ContactUs";
+import CountingOnScroll from "@/components/ui/CountingOnScroll";
 import Footer from "@/components/ui/Footer";
 import Header from "@/components/ui/Header";
 import OurProject from "@/components/ui/OurProject";
@@ -21,7 +21,7 @@ const Home = () => {
       <Services />
       <OurProject />
       <AboutUs />
-      <AutoCounting />
+      <CountingOnScroll />
       <OurTeam />
       <TestimonialCarousel />
       <ContactUs />
