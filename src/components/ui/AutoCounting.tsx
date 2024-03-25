@@ -24,7 +24,6 @@ const AutoCounting: React.FC<{ start: number; end: number }> = ({
         start: "top 80%",
         end: "bottom 80%",
         scrub: 1, // Adjust the speed of animation
-        markers: true, // Show markers for debug purposes
       },
     });
 
