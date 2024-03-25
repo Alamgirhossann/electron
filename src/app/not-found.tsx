@@ -1,6 +1,6 @@
 import { Button, Row } from "antd";
 
-import notFound from "../assets/404page.png";
+import notFound from "../assets/404page.gif";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -18,17 +18,17 @@ const NotFoundPage = () => {
         <Row>
           <Image
             src={notFound}
-            width={700}
+            width={400}
             loading="lazy"
             // style={{ objectFit: "contain" }}
             alt="404 not found"
           />
         </Row>
-        <div className="mt-5 flex justify-center">
-          <Link href="/home">
-            <Button className="bg-[#1677ff]" type="primary">
+        <div className=" flex justify-center">
+          <Link href="/">
+            <button className="bg-[#f14c36] px-5 py-2 text-white rounded-md">
               Back Home
-            </Button>
+            </button>
           </Link>
         </div>
       </div>

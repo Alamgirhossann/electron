@@ -1,7 +1,7 @@
 "use client";
 
 import { Button, Col, Row, message } from "antd";
-import loginImage from "../../assets/login (1).jpg";
+import loginImage from "../../assets/Secure login.gif";
 import Image from "next/image";
 import { SubmitHandler } from "react-hook-form";
 import { storeUserInfo } from "@/services/auth.service";
@@ -14,6 +14,7 @@ import { loginSchema } from "@/schemas/formValidationSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
 import heading_icon from "../../assets/heading_icon.png";
+import styles from "../ui/style.module.css";
 
 type FormValues = {
   id: string;
@@ -34,7 +35,7 @@ const LoginPage = () => {
       }
       storeUserInfo({ accessToken: res?.accessToken });
       setUserProfileId(res?.userProfileId);
-      router.push("/home");
+      router.push("/");
     } catch (error: any) {
       console.error(error.message);
     }
@@ -46,9 +47,11 @@ const LoginPage = () => {
   }, [userProfileId]);
   return (
     <>
-      <h1 className="flex justify-center md:mt-20 mt-10 mb-8">
-        <Image src={heading_icon} alt="" width={20} height={15} />
-        <span className="ms-3 md:text-[40px] text-xl font-bold">Login</span>
+      <h1 className="flex justify-center md:text-[30px] text-xl md:mb-12 md:mt-12 mt-10 mb-8 font-bold">
+        <span className={`${styles.customShape} ms-3`}>
+          {"  "}
+          Login
+        </span>
       </h1>
       <Row
         justify="center"
@@ -71,7 +74,13 @@ const LoginPage = () => {
           <div className="border-1 shadow-xl p-10 lg:mx-20 md:mx-10 mx-5 rounded-md md:mt-16 mt-8">
             <Form submitHandler={onSubmit} resolver={yupResolver(loginSchema)}>
               <div>
-                <FormInput name="id" type="text" size="large" label="User ID" />
+                <FormInput
+                  name="id"
+                  type="text"
+                  size="large"
+                  label="User ID"
+                  color="red"
+                />
               </div>
               <div
                 style={{
@@ -86,14 +95,18 @@ const LoginPage = () => {
                 />
               </div>
               <div className="flex justify-between">
-                <Button
-                  className="bg-[#1677ff]"
-                  type="primary"
-                  htmlType="submit"
+                <button
+                  className="bg-[#f14c36] px-5 py-2 rounded-md text-white"
+                  type="submit"
                 >
                   Login
-                </Button>
-                <Link href="/signup">Signup</Link>
+                </button>
+                <Link
+                  className="text-[#f14c36] hover:text-[#f14c36] text-md"
+                  href="/signup"
+                >
+                  Signup
+                </Link>
               </div>
             </Form>
           </div>

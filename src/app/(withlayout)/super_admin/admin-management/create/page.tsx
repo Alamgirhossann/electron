@@ -12,6 +12,7 @@ import FormSelectField from "@/components/forms/FormSelectField";
 import { adminSchema } from "@/schemas/admin";
 import { getUserInfo } from "@/services/auth.service";
 import heading_icon from "../../../../../assets/heading_icon.png";
+import styles from "../../../../../components/ui/style.module.css";
 
 type FormValues = {
   generalUser: {
@@ -72,11 +73,9 @@ const CreateAdmin = () => {
           role !== "super_admin" ? "hidden" : "block"
         }`}
       >
-        <h1 className="flex justify-center md:my-16 my-8">
-          <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
-          <span className="ms-3 md:text-[40px] text-xl font-bold">
-            Create Admin
-          </span>
+        <h1 className="flex justify-center md:text-[30px] text-xl md:pb-16 md:pt-20 pt-10 pb-8 font-bold">
+          <span className={`${styles.customShape}`}>Create</span>
+          <span className="ms-3 text-[#f14c36]"> Admin</span>
         </h1>
         <Row
           justify="center"
@@ -164,12 +163,12 @@ const CreateAdmin = () => {
                 </div>
 
                 <div className="flex justify-between">
-                  <Button
-                    htmlType="submit"
-                    className=" bg-[#1677ff] text-white"
+                  <button
+                    type="submit"
+                    className="bg-[#f14c36] px-5 py-2 rounded-md text-white"
                   >
                     submit
-                  </Button>
+                  </button>
                 </div>
               </Form>
             </div>

@@ -1,4 +1,5 @@
 // import React from "react";
+import styles from "../ui/style.module.css";
 
 type ActionBarProps = {
   title: string;
@@ -8,7 +9,9 @@ type ActionBarProps = {
 const ActionBar = ({ title, children }: ActionBarProps) => {
   return (
     <div>
-      <h1 className="md:text-2xl text-lg font-bold my-4">{title}</h1>
+      <h1 className=" flex justify-center md:text-2xl text-lg font-bold my-4">
+        <span className={`${styles.customShape}`}>{title}</span>
+      </h1>
       <div
         // style={{
         //   display: "flex",

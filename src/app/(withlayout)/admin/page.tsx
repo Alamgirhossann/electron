@@ -9,6 +9,7 @@ import Loading from "@/app/loading";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import styles from "../../../components/ui/style.module.css";
 
 const AdminProfile = () => {
   const router = useRouter();
@@ -37,11 +38,9 @@ const AdminProfile = () => {
       <div
         className={`md:px-5 md:mx-5 ${role === "user" ? "hidden" : "block"}`}
       >
-        <h1 className="flex justify-center md:my-16 my-8 mx-2">
-          <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
-          <span className="ms-3 md:text-[40px] text-xl font-bold">
-            Admin Profile
-          </span>
+        <h1 className="flex justify-center md:text-[30px] text-xl md:pb-12 md:pt-12 pt-10 pb-8 font-bold">
+          <span className="me-3 text-[#f14c36]"> Admin</span>
+          <span className={`${styles.customShape}`}>profile</span>
         </h1>
         <div className="flex justify-center">
           <div className=" shadow-2xl overflow-x-auto lg:w-2/4 w-full mx-2 px-2 bg-white rounded-md">
@@ -71,9 +70,12 @@ const AdminProfile = () => {
           <div className=" mt-5">
             <Link href="">
               {" "}
-              <Button type="primary" className="bg-[#1677ff] my-2 ">
+              <button
+                className="me-3 mb-3 bg-[#f14c36] px-5 py-2 rounded-md text-white"
+                type="submit"
+              >
                 Edit Profile
-              </Button>
+              </button>
             </Link>
           </div>
         </div>

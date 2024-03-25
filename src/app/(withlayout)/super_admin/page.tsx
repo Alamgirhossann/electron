@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useSuperAdminsQuery } from "@/redux/api/superAdmin";
 import Link from "next/link";
+import styles from "../../../components/ui/style.module.css";
 
 const SuperAdmin = () => {
   const router = useRouter();
@@ -29,11 +30,9 @@ const SuperAdmin = () => {
         role !== "super_admin" ? "hidden" : "block"
       }`}
     >
-      <h1 className="flex justify-center md:my-16 my-8 mx-2">
-        <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
-        <span className="ms-3 md:text-[40px] text-xl font-bold ">
-          Super Admin Profile
-        </span>
+      <h1 className="flex justify-center md:text-[30px] text-xl md:pb-12 md:pt-12 pt-10 pb-8 font-bold">
+        <span className="me-3 text-[#f14c36]"> Super</span>
+        <span className={`${styles.customShape}`}>Admin</span>
       </h1>
       <div className="flex justify-center">
         {superAdmin?.map((data: any, index: number) => (
@@ -59,9 +58,12 @@ const SuperAdmin = () => {
             </div>
             <div className="flex justify-center mt-5">
               <Link href={`/super_admin/edit/${data?._id}`}>
-                <Button type="primary" className="bg-[#1677ff] me-2">
+                <button
+                  type="submit"
+                  className="bg-[#f14c36] px-5 py-2 rounded-md text-white"
+                >
                   Edit Profile
-                </Button>
+                </button>
               </Link>
             </div>
           </div>

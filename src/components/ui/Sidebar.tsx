@@ -7,6 +7,7 @@ import { sidebarItems } from "@/constants/sidebarItems";
 import { getUserInfo, removeUserInfo } from "@/services/auth.service";
 import { useRouter } from "next/navigation";
 import { authKey } from "@/constants/storageKey";
+import styles from "../ui/style.module.css";
 const { Sider } = Layout;
 
 const Sidebar = () => {
@@ -46,26 +47,33 @@ const Sidebar = () => {
           left: 0,
           top: 0,
           bottom: 0,
+          background: "white",
         }}
       >
         <div
-          className={`text-white font-bold  text-center  ${
+          className={`font-bold  text-center mt-3  ${
             collapsed ? "text-xl mt-3" : "text-3xl mb-3"
           }`}
         >
-          Electron
+          <span className={`${styles.customShape}`}>Electron</span>
         </div>
         <div className="demo-logo-vertical" />
-        <Menu
-          theme="dark"
-          defaultSelectedKeys={["1"]}
-          mode="inline"
-          items={sidebarItems(role)}
-        />
+        <div>
+          <Menu
+            // theme="dark"
+
+            defaultSelectedKeys={["1"]}
+            mode="inline"
+            items={sidebarItems(role)}
+          />
+        </div>
         <div className={`mt-10 overflow-auto ${collapsed ? " ms-1" : "ms-8"}`}>
-          <Button className="bg-[#1677ff]" onClick={logOut} type="primary">
+          <button
+            className="bg-[#f14c36] px-4 py-2 rounded-md text-white"
+            onClick={logOut}
+          >
             logout
-          </Button>
+          </button>
         </div>
       </Sider>
     </>

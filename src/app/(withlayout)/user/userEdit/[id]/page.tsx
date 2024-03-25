@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import heading_icon from "../../../../../assets/heading_icon.png";
 import Image from "next/image";
+import styles from "../../../../../components/ui/style.module.css";
 
 const UserEdit = ({ params }: any) => {
   const genderOptions = [
@@ -61,11 +62,9 @@ const UserEdit = ({ params }: any) => {
 
   return (
     <>
-      <h1 className="flex justify-center md:my-16 my-8">
-        <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
-        <span className="ms-3 md:text-[40px] text-xl font-bold">
-          Update User
-        </span>
+      <h1 className="flex justify-center md:text-[30px] text-xl md:pb-16 md:pt-20 pt-10 pb-8 font-bold">
+        <span className={`${styles.customShape}`}>Update</span>
+        <span className="ms-3 text-[#f14c36]"> User</span>
       </h1>
       <Row
         className="px-1"
@@ -133,13 +132,12 @@ const UserEdit = ({ params }: any) => {
               </div>
 
               <div className="flex justify-between">
-                <Button
-                  htmlType="submit"
-                  type="primary"
-                  className="bg-[#1677ff]"
+                <button
+                  type="submit"
+                  className="bg-[#f14c36] px-5 py-2 rounded-md text-white"
                 >
                   submit
-                </Button>
+                </button>
               </div>
             </Form>
           </div>

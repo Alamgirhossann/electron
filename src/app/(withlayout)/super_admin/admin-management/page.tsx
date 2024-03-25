@@ -94,22 +94,19 @@ const AdminManagement = () => {
           <>
             {" "}
             <Link href="">
-              <Button
-                className="bg-[#1677ff] m-1"
-                onClick={() => console.log(data)}
-                type="primary"
+              <button
+                className="bg-[#f14c36] px-3 py-2 me-2 rounded-md text-white"
+                onClick={() => handleDelete(data)}
               >
                 <EditOutlined />
-              </Button>
+              </button>
             </Link>
-            <Button
-              className="m-1"
+            <button
+              className="bg-[#f14c36] px-3 py-2 rounded-md text-white"
               onClick={() => handleDelete(data)}
-              type="primary"
-              danger
             >
               <DeleteOutlined />
-            </Button>
+            </button>
           </>
         );
       },
@@ -165,19 +162,17 @@ const AdminManagement = () => {
           />
           <div className="mt-3">
             <Link href="/super_admin/admin-management/create">
-              <Button className="bg-[#1677ff] px-1 md:px-4 " type="primary">
+              <button className="bg-[#f14c36] px-3 py-2 me-2 rounded-md text-white ">
                 Create Admin
-              </Button>
+              </button>
             </Link>
             {(!!sortBy || !!sortOrder || !!searchTerm) && (
-              <Button
-                className="bg-[#1677ff]"
-                style={{ margin: "0px 5px" }}
-                type="primary"
+              <button
+                className="bg-[#f14c36] px-3 py-2 me-2 rounded-md text-white"
                 onClick={resetFilters}
               >
                 <ReloadOutlined />
-              </Button>
+              </button>
             )}
           </div>
         </ActionBar>

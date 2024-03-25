@@ -9,6 +9,7 @@ import Loading from "@/app/loading";
 import Link from "next/link";
 import { getUserInfo } from "@/services/auth.service";
 import { useRouter } from "next/navigation";
+import styles from "../../../components/ui/style.module.css";
 
 const UserProfile = () => {
   const [userData, setUserData] = useState<string | null>();
@@ -40,11 +41,9 @@ const UserProfile = () => {
       <div
         className={`md:px-5 md:mx-5 ${role !== "user" ? "hidden" : "block"}`}
       >
-        <h1 className="flex justify-center md:my-16 my-8">
-          <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
-          <span className="ms-3 md:text-[40px] text-xl font-bold">
-            User Profile
-          </span>
+        <h1 className="flex justify-center md:text-[30px] text-xl md:pb-16 md:pt-20 pt-10 pb-8 font-bold">
+          <span className="me-3 text-[#f14c36]"> User</span>
+          <span className={`${styles.customShape}`}>Profile</span>
         </h1>
         <div className="flex justify-center">
           <div className=" shadow-2xl overflow-x-auto lg:w-2/4 w-full mx-2 px-2 bg-white rounded-md">
@@ -75,15 +74,15 @@ const UserProfile = () => {
           <div className=" mt-5">
             <Link href={`/user/userEdit/${userGeneral?._id}`}>
               {" "}
-              <Button type="primary" className="bg-[#1677ff] me-2 my-2">
+              <button className="bg-[#f14c36] px-5 py-2 rounded-md text-white">
                 Edit Profile
-              </Button>
+              </button>
             </Link>
-            <Link href="/user/payment">
+            {/* <Link href="/user/payment">
               <Button type="primary" className="bg-[#1677ff]">
                 Payment
               </Button>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

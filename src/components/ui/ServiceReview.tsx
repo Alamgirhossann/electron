@@ -15,27 +15,29 @@ function ServiceReview() {
   };
 
   return (
-    <div className="flex justify-center mt-3">
-      <div className="w-full md:w-2/4">
-        <Input.TextArea
-          name="message"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Write your comment"
-        />
-        <div className="flex justify-center">
-          <Button
-            className="bg-[#1677ff] mt-3"
-            type="primary"
-            onClick={handleChange}
-          >
-            Add
-          </Button>
+    <div className="flex justify-center mt-3 md:mt-0">
+      <div className="w-full ">
+        <div className="flex flex-row gap-2">
+          <Input.TextArea
+            name="message"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            placeholder="Write your comment"
+            rows={1}
+          />
+          <div className="flex justify-center">
+            <button
+              className="bg-[#f14c36] px-5 py-2 rounded-md text-white"
+              onClick={handleChange}
+            >
+              Add
+            </button>
+          </div>
         </div>
         <div className="mt-4">
+          <h1 className="text-md md:text-[18px] mb-3">Comments</h1>
           {review?.map((item, i) => (
             <div key={i}>
-              <h1 className="text-md md:text-xl mb-3">Comments</h1>
               <p>{item}</p>
             </div>
           ))}

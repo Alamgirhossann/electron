@@ -9,6 +9,7 @@ import Link from "next/link";
 import Image from "next/image";
 import heading_icon from "../../../assets/heading_icon.png";
 import Loading from "@/app/loading";
+import styles from "../../../components/ui/style.module.css";
 
 const ServiceList = () => {
   const pageSizeOptions = ["5", "10", "20", "30", "40", "50"];
@@ -45,21 +46,27 @@ const ServiceList = () => {
 
   return (
     <div className="p-8">
-      <UMBreadCrumb
-        items={[
-          //   { label: `${role}`, link: `/${role}` },
-          { label: "serviceList", link: `/serviceList` },
-        ]}
-      />
-      <h1 className="flex justify-center  md:my-16 my-8">
-        <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
-        <span className="ms-3 md:text-[40px] text-xl font-bold">
-          All Services
+      <div className="text-[#f14c36]">
+        <UMBreadCrumb
+          items={[
+            //   { label: `${role}`, link: `/${role}` },
+            { label: "serviceList", link: `/serviceList` },
+          ]}
+        />
+      </div>
+      <h1 className="flex justify-center md:text-[30px] text-xl md:mb-12 md:mt-12 mt-10 mb-8 font-bold">
+        <span className="text-[#f14c36]">All</span>
+        <span className={`${styles.customShape} ms-3`}>
+          {"  "}
+          Services
         </span>
       </h1>
       <Row gutter={[16, 16]}>
         <Col xs={24} sm={24} md={8} lg={8} xl={8} className="mb-5">
-          <Card title="Search and Filter" className="shadow-xl  ">
+          <Card
+            title="Search and Filter"
+            className="shadow-xl c:\Users\HP\Downloads\Electrician.gif "
+          >
             <Input
               style={{ marginBottom: "10px" }}
               size="large"
@@ -75,9 +82,13 @@ const ServiceList = () => {
             {data?.service?.map((product) => (
               <Col xs={24} sm={12} md={8} lg={8} xl={8} key={product.id}>
                 <Link href={`/detail/${product.id}`}>
-                  <Card className="shadow-xl h-full">
-                    <p>Title: {product.title}</p>
-                    <p>Description: {product.description}</p>
+                  <Card className="shadow-xl h-full ">
+                    <div className="">
+                      <p className="text-[#f14c36] text-[18px] tracking-wide">
+                        Title: {product.title}
+                      </p>
+                      <p>Description: {product.description}</p>
+                    </div>
                   </Card>
                 </Link>
               </Col>

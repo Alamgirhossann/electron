@@ -1,7 +1,7 @@
 "use client";
 
 import { Button, Checkbox, Col, Row, message } from "antd";
-import signupImage from "../../assets/signup.jpg";
+import signupImage from "../../assets/Fill out.gif";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Form from "../forms/Form";
@@ -13,6 +13,7 @@ import { signupSchema } from "@/schemas/formValidationSchema";
 import type { CheckboxChangeEvent } from "antd/es/checkbox";
 import { useState } from "react";
 import { useAddGeneralUserMutation } from "@/redux/api/generalUserApi";
+import styles from "../ui/style.module.css";
 import heading_icon from "../../assets/heading_icon.png";
 
 type FormValues = {
@@ -66,16 +67,18 @@ const SignupPage = () => {
   };
   return (
     <>
-      <h1 className="flex justify-center md:mt-20 mt-10 mb-8">
-        <Image src={heading_icon} alt="" width={20} height={15} />
-        <span className="ms-3 md:text-[40px] text-xl font-bold">Signup</span>
+      <h1 className="flex justify-center md:text-[30px] text-xl md:mb-12 md:mt-12 mt-10 mb-8 font-bold">
+        <span className={`${styles.customShape} ms-3`}>
+          {"  "}
+          Signup
+        </span>
       </h1>
       <Row justify="center">
         <Col sm={0} md={12} lg={12} className="hidden md:block">
           <div className="flex justify-center">
             <Image
               src={signupImage}
-              className="w-[440px] h-[440px]"
+              className="w-[400px] h-[400px]"
               alt="signup image"
             />
           </div>
@@ -148,7 +151,13 @@ const SignupPage = () => {
           </Col> */}
                   <div className="lg:ms-[5px] md:ms-[10px] ms-3">
                     <Checkbox name="checkbox" onChange={onChange}>
-                      Accept our <Link href="/policy">Policy</Link>
+                      Accept our{" "}
+                      <Link
+                        className="text-[#f14c36] hover:text-[#f14c36]"
+                        href="/policy "
+                      >
+                        Policy
+                      </Link>
                     </Checkbox>
                   </div>
                 </Row>
@@ -157,11 +166,16 @@ const SignupPage = () => {
               <div className="flex justify-between mt-5">
                 <button
                   type="submit"
-                  className="bg-[#1677ff] px-5 py-1 rounded-md text-white"
+                  className="bg-[#f14c36] px-5 py-2 rounded-md text-white"
                 >
                   submit
                 </button>
-                <Link href="/login">Login</Link>
+                <Link
+                  className="text-[#f14c36] hover:text-[#f14c36]"
+                  href="/login"
+                >
+                  Login
+                </Link>
               </div>
             </Form>
           </div>

@@ -14,6 +14,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
 import heading_icon from "../../../../../assets/heading_icon.png";
+import styles from "../../../../../components/ui/style.module.css";
 
 const EditProfile = ({ params }: any) => {
   console.log(params.id);
@@ -63,11 +64,9 @@ const EditProfile = ({ params }: any) => {
 
   return (
     <>
-      <h1 className="flex justify-center  md:my-16 my-8">
-        <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
-        <span className="ms-3 md:text-[40px] text-xl font-bold">
-          Update Information
-        </span>
+      <h1 className="flex justify-center md:text-[30px] text-xl md:pb-12 md:pt-12 pt-10 pb-8 font-bold">
+        <span className="me-3 text-[#f14c36]"> Update</span>
+        <span className={`${styles.customShape}`}>Information</span>
       </h1>
       <Row
         justify="center"
@@ -133,13 +132,12 @@ const EditProfile = ({ params }: any) => {
               </div>
 
               <div className="my-5">
-                <Button
-                  htmlType="submit"
-                  type="primary"
-                  className="bg-[#1677ff]"
+                <button
+                  type="submit"
+                  className="bg-[#f14c36] px-5 py-2 rounded-md text-white"
                 >
                   submit
-                </Button>
+                </button>
               </div>
             </Form>
           </div>

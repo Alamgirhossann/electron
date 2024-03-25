@@ -97,9 +97,12 @@ const UserBookingPage = () => {
       render: function (data: any) {
         return (
           <>
-            <Button onClick={() => handleDelete(data)} type="primary" danger>
+            <button
+              className="bg-[#f14c36] px-3 py-2 rounded-md text-white"
+              onClick={() => handleDelete(data)}
+            >
               <DeleteOutlined />
-            </Button>
+            </button>
           </>
         );
       },
@@ -164,14 +167,13 @@ const UserBookingPage = () => {
             </Button>
           </Link> */}
             {(!!sortBy || !!sortOrder || !!searchTerm) && (
-              <Button
-                className="bg-[#1677ff]"
+              <button
+                className="bg-[#f14c36] px-3 py-2 rounded-md text-white"
                 style={{ margin: "0px 5px" }}
-                type="primary"
                 onClick={resetFilters}
               >
                 <ReloadOutlined />
-              </Button>
+              </button>
             )}
           </div>
         </ActionBar>

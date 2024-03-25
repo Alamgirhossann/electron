@@ -1,66 +1,123 @@
 import React from "react";
 import { Layout, Row, Col } from "antd";
 import Link from "next/link";
+import fb from "../../assets/icons8-facebook-48 (1).png";
+import twitter from "../../assets/icons8-twitter-48 (1).png";
+import instagram from "../../assets/icons8-instagram-48 (1).png";
+import linkedin from "../../assets/icons8-linkedin-48 (1).png";
+import Image from "next/image";
 
 const { Footer: AndFooter } = Layout;
 
 const Footer = () => {
+  const gradientBackground = {
+    // backgroundImage: "linear-gradient(to right, #FFDDDC, #EA4C46)",
+    background: "#f14c36",
+    color: "white",
+    padding: "1rem",
+    // borderRadius: "0.375rem", // You can use borderRadius to apply rounded corners
+    boxShadow:
+      "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)", // You can use boxShadow to apply shadow
+  };
   return (
     <>
-      <AndFooter
-        className="mt-16"
-        style={{ backgroundColor: "#001529", color: "white" }}
-      >
-        <Row justify="center">
+      <AndFooter style={gradientBackground}>
+        <Row justify="center" className="py-10">
           <Col xs={24} sm={8}>
-            <h2 className="md:text-[28px] text-xl mb-3 font-bold">Eectron</h2>
-            <p className="md:text-lg text-md">
+            <h2 className="md:text-[25px] text-xl mb-3 font-bold">Eectron</h2>
+            <p className="md:text-[0.8rem] text-sm tracking-wide">
               It is a long established fact that a reader will be distracted by
               the readable content of a page when looking at its layout. The
               point of using Lorem Ipsum is that it has a more-or-less normal
               distribution of letters, as opposed to using Content here, content
               here, making it.
             </p>
+            <div className="flex flex-row gap-4 mt-5">
+              <Image
+                src={fb}
+                alt="facebook"
+                className="w-8 h-8 cursor-pointer"
+              />
+              <Image
+                src={twitter}
+                alt="twitter"
+                className="w-8 h-8 cursor-pointer text-white"
+              />
+              <Image
+                src={linkedin}
+                alt="linkedin"
+                className="w-8 h-8 cursor-pointer"
+              />
+              <Image
+                src={instagram}
+                alt="instagram"
+                className="w-8 h-8 cursor-pointer"
+              />
+            </div>
           </Col>
-          <Col className="py-10 md:px-10 sm:py-0" xs={24} sm={8}>
-            <h2 className="md:text-[28px] text-xl mb-3 font-bold">
-              Useful Link
-            </h2>
-            <div className="md:text-lg text-md">
-              <Link className="text-white" href="/">
-                Home
-              </Link>
-            </div>
-            <div className="md:text-lg text-md">
-              {" "}
-              <Link className="text-white" href="#about">
-                About
-              </Link>
-            </div>
-            <div className="md:text-lg text-md">
-              <Link className="text-white" href="#project">
-                Our Projects
-              </Link>
-            </div>
+          <Col
+            className="py-10 md:px-10 sm:py-0 tracking-widest leading-{32px}"
+            xs={24}
+            sm={8}
+          >
+            <div>
+              <h2 className="md:text-[25px] text-xl mb-3 font-bold">
+                Useful Link
+              </h2>
+              <div className="md:text-[0.8rem] text-sm pb-1">
+                <Link
+                  className="text-white hover:text-white hover:underline"
+                  href="/"
+                >
+                  Home
+                </Link>
+              </div>
+              <div className="md:text-[0.8rem] text-sm ">
+                {" "}
+                <Link
+                  className="text-white leading-7 hover:text-white hover:underline"
+                  href="#about"
+                >
+                  About
+                </Link>
+              </div>
+              <div className="md:text-[0.8rem] text-sm">
+                <Link
+                  className="text-white leading-7 hover:text-white hover:underline"
+                  href="#project"
+                >
+                  Our Projects
+                </Link>
+              </div>
 
-            <div className="md:text-lg text-md">
-              <Link className="text-white" href="#testimonial">
-                Testimonial
-              </Link>
-            </div>
-            <div className="md:text-lg text-md">
-              <Link className="text-white" href="#contact">
-                Contact Us
-              </Link>
-            </div>
-            <div className="md:text-lg text-md">
-              <Link className="text-white" href="/policy">
-                Our Policy
-              </Link>
+              <div className="md:text-[0.8rem] text-sm">
+                <Link
+                  className="text-white leading-7 hover:text-white hover:underline"
+                  href="#testimonial"
+                >
+                  Testimonial
+                </Link>
+              </div>
+              <div className="md:text-[0.8rem] text-sm">
+                <Link
+                  className="text-white leading-7 hover:text-white hover:underline"
+                  href="#contact"
+                >
+                  Contact Us
+                </Link>
+              </div>
+              <div className="md:text-[0.8rem] text-sm">
+                <Link
+                  className="text-white leading-7 hover:text-white hover:underline"
+                  href="/policy"
+                >
+                  Our Policy
+                </Link>
+              </div>
             </div>
           </Col>
           <Col xs={24} sm={8}>
-            <h2 className="md:text-[28px] text-xl mb-3 font-bold">Contact</h2>
+            <h2 className="md:text-[25px] text-xl mb-3 font-bold">Contact</h2>
 
             <div className="flex md:text-xl text-md">
               <p className="me-3">
@@ -70,7 +127,7 @@ const Footer = () => {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="md:w-8 md:h-8 w-5 h-5"
+                  className="md:w-6 md:h-6 w-4 h-4"
                 >
                   <path
                     strokeLinecap="round"
@@ -84,7 +141,7 @@ const Footer = () => {
                   />
                 </svg>
               </p>
-              <p className="md:text-lg text-md">
+              <p className="md:text-[0.8rem] text-sm tracking-wide">
                 It is a long established fact that a reader will be distracted
               </p>
             </div>
@@ -96,7 +153,7 @@ const Footer = () => {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="md:w-8 md:h-8 w-5 h-5"
+                  className="md:w-6 md:h-6 w-4 h-4"
                 >
                   <path
                     strokeLinecap="round"
@@ -105,7 +162,7 @@ const Footer = () => {
                   />
                 </svg>
               </p>
-              <p className="md:text-lg text-md">
+              <p className="md:text-[0.8rem] text-sm tracking-widest">
                 (+71) 1234567890
                 <br />
                 (+71) 1234567890
@@ -119,7 +176,7 @@ const Footer = () => {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="md:w-8 md:h-8 w-5 h-5"
+                  className="md:w-6 md:h-6 w-4 h-4"
                 >
                   <path
                     strokeLinecap="round"
@@ -128,10 +185,17 @@ const Footer = () => {
                   />
                 </svg>
               </p>
-              <p className="md:text-lg text-md">electron@gmail.com</p>
+              <p className="md:text-[0.8rem] text-sm tracking-widest">
+                electron@gmail.com
+              </p>
             </div>
           </Col>
         </Row>
+        <div className=" text-white my-5 text-center">
+          <p className="text-sm md:text-[0.8rem] tracking-wider ">
+            © 2023 All Rights Reserved by Electron
+          </p>
+        </div>
       </AndFooter>
     </>
   );

@@ -99,27 +99,19 @@ const AdminBookingPage = () => {
         return (
           <>
             <Link href="">
-              <Button
-                className="bg-[#1677ff]"
-                style={{
-                  margin: "5px",
-                }}
-                onClick={() => console.log(data)}
-                type="primary"
+              <button
+                className="bg-[#f14c36] px-3 py-2 me-2 rounded-md text-white"
+                onClick={() => handleDelete(data)}
               >
                 <EditOutlined />
-              </Button>
+              </button>
             </Link>
-            <Button
-              style={{
-                margin: "5px",
-              }}
+            <button
+              className="bg-[#f14c36] px-3 py-2 rounded-md text-white"
               onClick={() => handleDelete(data)}
-              type="primary"
-              danger
             >
               <DeleteOutlined />
-            </Button>
+            </button>
           </>
         );
       },
@@ -179,14 +171,12 @@ const AdminBookingPage = () => {
             </Button>
           </Link> */}
             {(!!sortBy || !!sortOrder || !!searchTerm) && (
-              <Button
-                className="bg-[#1677ff]"
-                style={{ margin: "0px 5px" }}
-                type="primary"
+              <button
+                className="bg-[#f14c36] px-3 py-2 me-2 rounded-md text-white"
                 onClick={resetFilters}
               >
                 <ReloadOutlined />
-              </Button>
+              </button>
             )}
           </div>
         </ActionBar>

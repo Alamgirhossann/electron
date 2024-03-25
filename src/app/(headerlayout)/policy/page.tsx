@@ -1,17 +1,14 @@
 import Image from "next/image";
 import React from "react";
-import heading_icon from "../../../assets/heading_icon.png";
+import styles from "../../../components/ui/style.module.css";
 
 const PolicyPage = () => {
   return (
     <div className=" h-full px-5 py-4 text-center md:text-left">
-      <h1 className="flex justify-center my-8 md:my-16">
-        <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
-        <span className="ms-3 md:text-[40px] text-xl font-bold">
-          Our Policy
-        </span>
+      <h1 className="flex justify-center md:text-[30px] text-xl md:mb-12 md:mt-12 mt-10 mb-8 font-bold">
+        <span className={`${styles.customShape} me-3`}>Policy{"  "}</span>
       </h1>
-      <p className="md:text-lg text-md">
+      <p className="text-[14px] text-gray-500 px-4 md:px-[100px] lg:px-[200px] md:text-left text-center py-10">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem,
         suscipit. Quidem doloremque cum odit earum incidunt repudiandae
         consequuntur provident, voluptates, reiciendis suscipit repellat quam

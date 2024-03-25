@@ -8,11 +8,21 @@ import heading_icon from "../../../../assets/heading_icon.png";
 import service_img6 from "../../../../assets/service_icon6.png";
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
 import ServiceReview from "@/components/ui/ServiceReview";
+import { useRouter } from "next/navigation";
+import { getUserInfo } from "@/services/auth.service";
+import styles from "../../../../components/ui/style.module.css";
 
 const ServiceDetail = ({ params }: any) => {
-  const handleShare = () => {
-    message.success("Successfully shared");
-  };
+  const router = useRouter();
+  const { role, userId } = getUserInfo() as any;
+  // const handleShare = () => {
+  //   if (!role) {
+  //     router.push("/login");
+  //   }else{
+  //     router.push(`/bookings/${params.id}`)
+  //   }
+
+  // };
   const { data, isLoading } = useSingleServiceQuery(params?.id);
 
   console.log(data?.title);
@@ -26,53 +36,61 @@ const ServiceDetail = ({ params }: any) => {
           ]}
         />
       </div>
-      <div className=" flex justify-center">
+      <div className="flex justify-center">
         <div className="w-full md:w-2/4">
-          <h1 className="flex justify-center  my-16">
-            <Image
-              src={heading_icon}
-              alt="heading_icon"
-              width={20}
-              height={15}
-            />
-            <span className="ms-3 md:text-[40px] text-xl font-bold">
-              Service Detail
+          <h1 className="flex justify-center md:text-[30px] text-xl md:my-8 mt-10 mb-8 font-bold">
+            <span className="text-[#f14c36]">Service</span>
+            <span className={`${styles.customShape} ms-3`}>
+              {"  "}
+              Detail
             </span>
           </h1>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 ">
+        <div className="p-4 bg-white">
           <Card className=" shadow-2xl">
-            <div className="my-5 text-center md:text-xl text-md">
+            <div className="my-5 md:text-xl text-md grid grid-cols-1 sm:grid-cols-2 ">
               <div className="flex justify-center mb-5">
-                <Image src={service_img6} alt="service_image" width={100} />
+                <Image
+                  src={service_img6}
+                  alt="service_image"
+                  className="w-40 h-40"
+                />
               </div>
-              <p>Title: {data?.title}</p>
-              <p>Description: {data?.description}</p>
-              <p>
-                Availability:{" "}
-                {data?.availability ? "Available" : "Not Available"}
-              </p>
-              <p>Price: ${data?.price}</p>
-              <p>Rating: {data?.rating}</p>
+              <div className="text-[15px] text-gray-500">
+                <p>Title: {data?.title}</p>
+                <p>Description: {data?.description}</p>
+                <p>
+                  Availability:{" "}
+                  {data?.availability ? "Available" : "Not Available"}
+                </p>
+                <p>Price: ${data?.price}</p>
+                <p>Rating: {data?.rating}</p>
+              </div>
             </div>
           </Card>
 
           <div className="flex justify-center my-5">
             <Link href={`/bookings/${params.id}`}>
-              <Button className="bg-[#1677ff] mx-1" type="primary">
+              <button className="bg-[#f14c36] px-5 py-2 rounded-md text-white">
                 Booking
-              </Button>
+              </button>
             </Link>
-            <Button
+            {/* <Button
               onClick={handleShare}
               className="bg-[#1677ff] mx-1"
               type="primary"
             >
               Share
-            </Button>
+            </Button> */}
           </div>
         </div>
-      </div>
-      <div className="mt-20">
-        <ServiceReview />
+        <div className="p-4 bg-white text-gray-500">
+          <div className="">
+            <ServiceReview />
+          </div>
+        </div>
       </div>
     </div>
   );

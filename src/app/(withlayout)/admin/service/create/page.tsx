@@ -11,6 +11,7 @@ import heading_icon from "../../../../../assets/heading_icon.png";
 import { useAddServiceMutation } from "@/redux/api/serviceApi";
 import { useRouter } from "next/navigation";
 import { getUserInfo } from "@/services/auth.service";
+import styles from "../../../../../components/ui/style.module.css";
 
 const CreateService = () => {
   const router = useRouter();
@@ -47,9 +48,9 @@ const CreateService = () => {
           role === "user" ? "hidden" : "block"
         }`}
       >
-        <h1 className="flex justify-center text-xl md:text-3xl font-bold my-16">
-          <Image src={heading_icon} alt="heading_icon" width={20} height={15} />
-          <span className="ms-3">Add Service</span>
+        <h1 className="flex justify-center md:text-[30px] text-xl md:pb-12 md:pt-12 pt-10 pb-8 font-bold">
+          <span className="me-3 text-[#f14c36]"> Add</span>
+          <span className={`${styles.customShape}`}>Service</span>
         </h1>
 
         <div>
@@ -130,13 +131,12 @@ const CreateService = () => {
             {/* basic info */}
 
             <div>
-              <Button
-                className="me-3 mb-3 bg-[#1677ff]"
-                htmlType="submit"
-                type="primary"
+              <button
+                className="me-3 mb-3 bg-[#f14c36] px-5 py-2 rounded-md text-white"
+                type="submit"
               >
                 Add
-              </Button>
+              </button>
             </div>
           </Form>
         </div>

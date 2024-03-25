@@ -11,6 +11,7 @@ interface IInput {
   placeholder?: string;
   validation?: object;
   label?: string;
+  color?: string;
 }
 
 const FormInput = ({
@@ -22,6 +23,7 @@ const FormInput = ({
   placeholder,
   validation,
   label,
+  color,
 }: IInput) => {
   const {
     control,
@@ -52,6 +54,7 @@ const FormInput = ({
               placeholder={placeholder}
               {...field}
               value={value ? value : field.value}
+              style={{ outlineColor: "none" }}
             />
           )
         }

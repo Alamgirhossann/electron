@@ -88,9 +88,12 @@ const UserProfile = () => {
       render: function (data: any) {
         return (
           <>
-            <Button onClick={() => handleDelete(data)} type="primary" danger>
+            <button
+              className="bg-[#f14c36] px-3 py-2 rounded-md text-white"
+              onClick={() => handleDelete(data)}
+            >
               <DeleteOutlined />
-            </Button>
+            </button>
           </>
         );
       },
@@ -148,14 +151,12 @@ const UserProfile = () => {
           />
           <div>
             {(!!sortBy || !!sortOrder || !!searchTerm) && (
-              <Button
-                className="bg-[#1677ff]"
-                style={{ margin: "0px 5px" }}
-                type="primary"
+              <button
+                className="bg-[#f14c36] px-3 py-2 me-2 rounded-md text-white"
                 onClick={resetFilters}
               >
                 <ReloadOutlined />
-              </Button>
+              </button>
             )}
           </div>
         </ActionBar>

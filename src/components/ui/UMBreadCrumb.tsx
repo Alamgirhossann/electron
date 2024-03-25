@@ -31,7 +31,13 @@ const UMBreadCrumb = ({
   ];
   return (
     <>
-      <Breadcrumb items={breadCrumbItems}></Breadcrumb>
+      <div className="text-[#f14c36]">
+        {" "}
+        <Breadcrumb
+          style={{ color: "#f14c36" }}
+          items={breadCrumbItems}
+        ></Breadcrumb>
+      </div>
     </>
   );
 };
