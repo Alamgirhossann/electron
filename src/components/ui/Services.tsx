@@ -43,7 +43,8 @@ const cardData = [
   {
     title: "Electrical",
     image: service_img6,
-    content: "There are many variations of passages of Lorem Ipsum available,",
+    content:
+      "There are many variations of passages of Lorem Ipsum availableee,",
   },
 ];
 
