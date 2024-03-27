@@ -11,7 +11,7 @@ interface IInput {
   placeholder?: string;
   validation?: object;
   label?: string;
-  color?: string;
+  change?: (e: any) => void;
 }
 
 const FormInput = ({
@@ -23,12 +23,14 @@ const FormInput = ({
   placeholder,
   validation,
   label,
-  color,
+  change,
 }: IInput) => {
   const {
     control,
     formState: { errors },
   } = useFormContext();
+
+  // console.log(value);
 
   const errorMessage = getErrorMessageByPropertyName(errors, name);
 
@@ -46,6 +48,7 @@ const FormInput = ({
               placeholder={placeholder}
               {...field}
               value={value ? value : field.value}
+              // onChange={change}
             />
           ) : (
             <Input
@@ -55,6 +58,7 @@ const FormInput = ({
               {...field}
               value={value ? value : field.value}
               style={{ outlineColor: "none" }}
+              // onChange={change}
             />
           )
         }

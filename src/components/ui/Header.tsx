@@ -14,6 +14,7 @@ import logo from "../../assets/logo (2).png";
 
 import { HomeOutlined, UserOutlined, SettingOutlined } from "@ant-design/icons";
 import Image from "next/image";
+import { signOut, useSession } from "next-auth/react";
 
 const { Content, Footer } = Layout;
 const { Search } = Input;
@@ -23,7 +24,7 @@ const Header = () => {
 
   console.log(superAdminDataFind);
   const router = useRouter();
-  const logOut = () => {
+  const handleLogOut = () => {
     removeUserInfo(authKey);
     localStorage.removeItem("role");
     localStorage.removeItem("userId");
@@ -61,6 +62,18 @@ const Header = () => {
   }, [superAdminData?.superAdmin, userId]);
 
   // console.log(userGeneral, userAdmin);
+
+  const { data: session }: any = useSession();
+  const handleSignOut = () => {
+    signOut();
+  };
+
+  // useEffect(() => {
+  //   //@ts-ignore
+  //   if (!session && !session?.user) {
+  //     router.push("/login");
+  //   }
+  // }, [session]);
 
   return (
     <>
@@ -105,7 +118,7 @@ const Header = () => {
                   </Menu.Item>
 
                   <Menu.Item key="logout">
-                    <p className="text-black" onClick={logOut}>
+                    <p className="text-black" onClick={handleLogOut}>
                       Logout
                     </p>
                   </Menu.Item>
@@ -123,7 +136,7 @@ const Header = () => {
                   </Menu.Item>
 
                   <Menu.Item key="logout">
-                    <p className="text-black" onClick={logOut}>
+                    <p className="text-black" onClick={handleLogOut}>
                       Logout
                     </p>
                   </Menu.Item>
@@ -144,17 +157,37 @@ const Header = () => {
                   </Menu.Item>
 
                   <Menu.Item key="logout">
-                    <p className="text-black" onClick={logOut}>
+                    <p className="text-black" onClick={handleLogOut}>
                       Logout
                     </p>
                   </Menu.Item>
                 </>
               )}
-              {!userAdmin && !userGeneral && !superAdminDataFind && (
-                <Menu.Item key="login">
-                  <p onClick={changeRoute}>Login</p>
-                </Menu.Item>
+              {session && (
+                <>
+                  <Menu.Item key="feedback" style={{ color: "black" }}>
+                    <Link href="/feedback">Feedback</Link>
+                  </Menu.Item>
+                  <Menu.Item key="dashboard" style={{ color: "black" }}>
+                    <Link href="/user"> Dashboard</Link>
+                  </Menu.Item>
+                  <Menu.Item key="name">{session?.user.name}</Menu.Item>
+
+                  <Menu.Item key="logout">
+                    <p className="text-black" onClick={handleSignOut}>
+                      Logout
+                    </p>
+                  </Menu.Item>
+                </>
               )}
+              {!userAdmin &&
+                !userGeneral &&
+                !superAdminDataFind &&
+                !session && (
+                  <Menu.Item key="login">
+                    <p onClick={changeRoute}>Login</p>
+                  </Menu.Item>
+                )}
             </Menu>
           </div>
         </Col>

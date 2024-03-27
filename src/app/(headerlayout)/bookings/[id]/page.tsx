@@ -16,6 +16,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { bookingFormSchema } from "@/schemas/formValidationSchema";
 import { getUserInfo } from "@/services/auth.service";
 import styles from "../../../../components/ui/style.module.css";
+import { useSession } from "next-auth/react";
 
 const Bookings = ({ params }: any) => {
   // const [userProfileId, setUserProfileId] = useState<string | null>();
@@ -23,13 +24,13 @@ const Bookings = ({ params }: any) => {
   const router = useRouter();
   const [addBooking] = useAddBookingMutation();
   const { role, userId } = getUserInfo() as any;
-
+  const { data: session }: any = useSession();
   // useEffect(() => {
   //   //@ts-ignore
   //   setUserProfileId(localStorage.getItem("userProfileId"));
   // }, []);
 
-  if (!role) {
+  if (!role && !session) {
     router.push("/login");
   }
   const onSubmit = async (values: any) => {
@@ -48,14 +49,9 @@ const Bookings = ({ params }: any) => {
     }
   };
 
-  const reservation = () => {
-    message.success("Your booking added to reservation");
-    router.push("/user");
-  };
-
   return (
     <div className="md:px-[5rem] px-2 py-5">
-      {!role ? (
+      {!role && !session ? (
         <p>Login Required</p>
       ) : (
         <>
