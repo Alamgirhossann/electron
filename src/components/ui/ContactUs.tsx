@@ -180,7 +180,7 @@ const ContactUs = () => {
                   </h1>
                   <p className=" tracking-wide text-[14px]">
                     Infrastructure, also called heavy civil or heavy
-                    engineering, includes large public works.
+                    engineering, in includes large public works.
                   </p>
                 </div>
               </div>
