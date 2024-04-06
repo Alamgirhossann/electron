@@ -221,3 +221,56 @@
 .animateBlink:hover {
     animation: blink 1s infinite;
 }
+
+.customScrollbar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.customScrollbar::-webkit-scrollbar-thumb {
+    background-color: #f14c36;
+    border-radius: 10px;
+}
+
+.customScrollbar::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+.pieBarChart {
+    width: 170px;
+}
+
+@media screen and (max-width: 1322px) {
+    .pieBarChart {
+        width: 205px;
+    }
+}
+
+@media screen and (max-width: 1130px) {
+    .pieBarChart {
+        width: 145px;
+    }
+}
+
+@media screen and (max-width: 1022px) {
+    .pieBarChart {
+        width: 185px;
+    }
+}
+
+@media screen and (max-width: 922px) {
+    .pieBarChart {
+        width: 145px;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .pieBarChart {
+        width: 135px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .pieBarChart {
+        width: auto;
+    }
+}

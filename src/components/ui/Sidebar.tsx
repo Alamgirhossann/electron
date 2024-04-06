@@ -1,5 +1,5 @@
 "use client";
-import { Button, Layout, Menu } from "antd";
+import { Button, Layout, Menu, Tooltip } from "antd";
 import React, { useEffect, useState } from "react";
 
 import { USER_ROLE } from "@/constants/role";
@@ -8,6 +8,7 @@ import { getUserInfo, removeUserInfo } from "@/services/auth.service";
 import { useRouter } from "next/navigation";
 import { authKey } from "@/constants/storageKey";
 import styles from "../ui/style.module.css";
+import { LogoutOutlined } from "@ant-design/icons";
 const { Sider } = Layout;
 
 const Sidebar = () => {
@@ -50,30 +51,51 @@ const Sidebar = () => {
           background: "white",
         }}
       >
-        <div
-          className={`font-bold  text-center mt-3  ${
-            collapsed ? "text-xl mt-3" : "text-3xl mb-3"
-          }`}
-        >
-          <span className={`${styles.customShape}`}>Electron</span>
-        </div>
-        <div className="demo-logo-vertical" />
-        <div>
-          <Menu
-            // theme="dark"
-
-            defaultSelectedKeys={["1"]}
-            mode="inline"
-            items={sidebarItems(role)}
-          />
-        </div>
-        <div className={`mt-10 overflow-auto ${collapsed ? " ms-1" : "ms-8"}`}>
-          <button
-            className="bg-[#f14c36] px-4 py-2 rounded-md text-white"
-            onClick={logOut}
+        <div className="flex flex-col h-screen">
+          <div
+            className={`font-bold first-div text-center mt-3 ${
+              collapsed ? "text-xl mt-3" : "text-3xl mb-3"
+            }`}
           >
-            logout
-          </button>
+            <span className={`${styles.customShape}`}>Electron</span>
+          </div>
+          <div className="demo-logo-vertical" />
+          <div
+            className={`${styles.customScrollbar} overflow-auto second-div flex-grow custom-scrollbar`}
+          >
+            <Menu
+              // theme="dark"
+
+              defaultSelectedKeys={["1"]}
+              mode="inline"
+              items={sidebarItems(role)}
+            />
+          </div>
+          <div
+            className={`relative h-24 mt-10 pt-10 third-div ${
+              collapsed ? "flex justify-center" : "ms-8"
+            }`}
+          >
+            {collapsed ? (
+              <Tooltip title="Logout" placement="left">
+                <button
+                  className="p-3 absolute bottom-16 text-center rounded-md active:bg-gray-200"
+                  onClick={logOut}
+                >
+                  <LogoutOutlined />{" "}
+                  <span className={`${collapsed && "hidden"}`}>Logout</span>
+                </button>
+              </Tooltip>
+            ) : (
+              <button
+                className="absolute bottom-16 text-center rounded-md active:bg-gray-200"
+                onClick={logOut}
+              >
+                <LogoutOutlined />{" "}
+                <span className={`${collapsed && "hidden"}`}>Logout</span>
+              </button>
+            )}
+          </div>
         </div>
       </Sider>
     </>

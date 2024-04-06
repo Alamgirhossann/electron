@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import Sidebar from "@/components/ui/Sidebar";
 import Contents from "@/components/ui/Contents";
 import Loading from "../loading";
+import SideNavigation from "@/components/ui/SideNavigation";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const userLoggedIn = isLoggedIn();
@@ -28,6 +29,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Layout hasSider>
+        {/* <SideNavigation /> */}
         <Sidebar />
         <Contents>{children}</Contents>
       </Layout>

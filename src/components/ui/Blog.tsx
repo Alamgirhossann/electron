@@ -49,8 +49,8 @@ const Blog = () => {
       </div>
       <Row gutter={16}>
         {cardData.map((data, index) => (
-          <Col xs={24} sm={12} md={8} key={index} className="mb-3">
-            <div className="h-full mx-10 sm:mx-0 ">
+          <Col xs={24} sm={12} md={12} lg={8} key={index} className="mb-3">
+            <div className="h-full mx-10 sm:mx-0">
               {" "}
               <Card
                 className={`transform transition-transform duration-300 hover:scale-x-110 shadow-2xl h-full `}
@@ -62,7 +62,7 @@ const Blog = () => {
                   />
                 }
               >
-                <div className="flex flex-row gap-4">
+                <div className="flex flex-row gap-4 mg:gap-1 lg:gap-4">
                   <div className="flex flex-row gap-2 items-center">
                     <div className="text-[#f14c36]">
                       <svg

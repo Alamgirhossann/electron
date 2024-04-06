@@ -83,7 +83,7 @@ const ContactUs = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 ">
             <div className="p-4 ">
               <div className="flex justify-center  ">
-                <div className="bg-white px-12 py-12 w-3/4 rounded-md">
+                <div className="bg-white p-6 lg:p-12 w-full lg:w-3/4 rounded-md">
                   <h1 className="text-[25px] mb-5 font-bold text-black">
                     Get In <span className="text-[#f14c36] ">Touch</span>
                   </h1>
@@ -131,7 +131,7 @@ const ContactUs = () => {
 
                     <div className="flex justify-center my-5">
                       <button
-                        className="bg-[#f14c36] w-full py-4 text-white font-bold rounded-md"
+                        className="bg-[#f14c36] w-full py-2 text-white font-bold rounded-md"
                         type="submit"
                       >
                         Submit
@@ -142,7 +142,7 @@ const ContactUs = () => {
               </div>
             </div>
             <div className="p-4">
-              <div className="flex flex-row gap-2 border border-white rounded-md p-8 mb-6">
+              <div className="flex flex-row gap-2 border border-white rounded-md p-5 mb-3 lg:p-8 lg:mb-6">
                 <div className="px-5">
                   <Image className="w-20 h-14" src={contact_icon} alt="icon" />
                 </div>
@@ -156,7 +156,7 @@ const ContactUs = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-row gap-2 border border-white rounded-md p-8 mb-6">
+              <div className="flex flex-row gap-2 border border-white rounded-md p-5 mb-3 lg:p-8 lg:mb-6">
                 <div className="px-5">
                   <Image className="w-20 h-14" src={contact_icon1} alt="icon" />
                 </div>
@@ -170,7 +170,7 @@ const ContactUs = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-row gap-2 border border-white rounded-md p-8 mb-6">
+              <div className="flex flex-row gap-2 border border-white rounded-md p-5 mb-3 lg:p-8 lg:mb-6 ">
                 <div className="px-5">
                   <Image className="w-20 h-14" src={contact_icon2} alt="icon" />
                 </div>

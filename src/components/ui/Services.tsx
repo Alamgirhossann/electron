@@ -94,8 +94,8 @@ const Services = () => {
       </Row>
       <div className="text-center mt-10">
         <Link href="/serviceList">
-          <button className="bg-[#f14c36] text-white py-3 rounded-lg transition duration-300 ease-in-out hover:bg-red-500 active:bg-green-500">
-            <span className={`${styles.animateBlink} px-5 py-3`}>See More</span>
+          <button className="bg-[#f14c36] text-white py-2 rounded-lg transition duration-300 ease-in-out hover:bg-red-500 active:bg-green-500">
+            <span className={`${styles.animateBlink} px-5 py-2`}>See More</span>
           </button>
         </Link>
       </div>

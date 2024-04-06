@@ -1,3 +1,4 @@
+"use client";
 import type { MenuProps } from "antd";
 import {
   ProfileOutlined,
@@ -14,24 +15,29 @@ import { USER_ROLE } from "./role";
 export const sidebarItems = (role: string) => {
   const defaultSidebarItems: MenuProps["items"] = [
     {
+      label: <Link href={`/overView`}>Over View</Link>,
+      key: "over-view",
+      icon: <ProfileOutlined />,
+    },
+    {
       label: <Link href={`/`}>Home</Link>,
       key: "home",
       icon: <ProfileOutlined />,
     },
     {
-      label: "Profile",
+      label: <Link href={`/${role}`}>Profile</Link>,
       key: "profile",
       icon: <ProfileOutlined />,
-      children: [
-        {
-          label: <Link href={`/${role}`}>Account Profile</Link>,
-          key: `/${role}`,
-        },
-        // {
-        //   label: <Link href={`/${role}/change-password`}>Change Password</Link>,
-        //   key: `/${role}/change-password`,
-        // },
-      ],
+      // children: [
+      //   {
+      //     label: <Link href={`/${role}`}>Account Profile</Link>,
+      //     key: `/${role}`,
+      //   },
+      //   // {
+      //   //   label: <Link href={`/${role}/change-password`}>Change Password</Link>,
+      //   //   key: `/${role}/change-password`,
+      //   // },
+      // ],
     },
   ];
 
