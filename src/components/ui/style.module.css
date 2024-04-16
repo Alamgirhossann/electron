@@ -245,6 +245,12 @@
     }
 }
 
+@media screen and (max-width: 1232px) {
+    .pieBarChart {
+        width: 180px;
+    }
+}
+
 @media screen and (max-width: 1130px) {
     .pieBarChart {
         width: 145px;
@@ -271,6 +277,6 @@
 
 @media screen and (max-width: 767px) {
     .pieBarChart {
-        width: auto;
+        width: none;
     }
 }

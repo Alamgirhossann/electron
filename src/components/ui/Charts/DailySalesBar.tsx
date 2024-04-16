@@ -42,7 +42,7 @@ export const data = {
       label: "Daily Sales",
       data: [993, 1114, 1225, 2219, 3333, 4555, 5552],
       // data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
+      backgroundColor: "#f14c36",
     },
   ],
 };

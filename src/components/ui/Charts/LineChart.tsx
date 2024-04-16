@@ -43,7 +43,7 @@ export const data = {
       label: "Expense",
       data: [8, 4, 3, 5, 2, 13, 11, 4, 3, 5, 2, 5],
       borderColor: "rgb(255, 99, 132)",
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
+      backgroundColor: "#f14c36",
     },
     {
       label: "Budget",

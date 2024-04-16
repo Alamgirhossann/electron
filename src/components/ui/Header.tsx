@@ -110,7 +110,7 @@ const Header = () => {
               {userAdmin && (
                 <>
                   <Menu.Item key="dashboard" style={{ color: "black" }}>
-                    <Link href="/admin"> Dashboard</Link>
+                    <Link href="/overView"> Dashboard</Link>
                   </Menu.Item>
                   <Menu.Item key="name">
                     {userAdmin?.name?.firstName} {userAdmin?.name?.middleName}{" "}
@@ -127,7 +127,7 @@ const Header = () => {
               {superAdminDataFind && (
                 <>
                   <Menu.Item key="dashboard" style={{ color: "black" }}>
-                    <Link href="/super_admin"> Dashboard</Link>
+                    <Link href="/overView"> Dashboard</Link>
                   </Menu.Item>
                   <Menu.Item key="name">
                     {superAdminDataFind?.name?.firstName}{" "}
@@ -148,7 +148,7 @@ const Header = () => {
                     <Link href="/feedback">Feedback</Link>
                   </Menu.Item>
                   <Menu.Item key="dashboard" style={{ color: "black" }}>
-                    <Link href="/user"> Dashboard</Link>
+                    <Link href="/overView"> Dashboard</Link>
                   </Menu.Item>
                   <Menu.Item key="name">
                     {userGeneral?.name?.firstName}{" "}
